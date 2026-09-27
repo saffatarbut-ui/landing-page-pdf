@@ -9,7 +9,13 @@ guide ($9.99) and the Complete Family Bundle ($17.99). No build step.
    near the bottom of `index.html`. Full steps, file delivery, and testing are in
    [`CHECKOUT-SETUP.md`](CHECKOUT-SETUP.md).
 2. **Launch price (optional):** set or clear `LAUNCH.endsAt` in the same script.
-3. **Wide label-pack image (optional):** save the horizontal promo as
+3. **Family photo:** save a properly licensed photo (adult child and parent at a table, landscape,
+   about 1600 × 1200) as `assets/family-photo.jpg`. It appears automatically.
+4. **Testimonials and "Why I Created This":** fill in `TESTIMONIALS` and `CREATOR` in the script
+   at the bottom of `index.html`. Use real quotes only, with permission.
+5. **Before launch:** set `SHOW_PLACEHOLDERS = false`. Anything still empty then hides itself
+   instead of showing a placeholder.
+6. **Wide label-pack image (optional):** save the horizontal promo as
    `assets/label-pack-wide.webp` and uncomment the `<source>` line in the bonus section.
 
 ## Files
