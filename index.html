@@ -131,14 +131,23 @@
   .hero .lede { max-width: 31em; font-size: 1.2rem; }
   .hero-actions { display: grid; gap: 14px; justify-items: start; }
   .format-line { font-size: .95rem; color: var(--ink-2); }
-  .proof { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; max-width: 34em; padding-top: 18px; border-top: 1px solid var(--rule); }
-  .proof img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-  .proof q { font-family: var(--display); font-style: italic; font-size: 1.1rem; color: var(--navy-deep); quotes: "\201C" "\201D"; }
-  .proof span { display: block; font-size: .9rem; color: var(--ink-2); margin-top: 4px; }
-  .proof b { color: var(--ink); }
-  .proof.on-dark { border-top-color: rgba(255,255,255,.15); margin: 28px auto 0; justify-content: center; }
-  .proof.on-dark q, .proof.on-dark b { color: #fff; }
-  .proof.on-dark span { color: var(--on-dark-2); }
+  .see-pricing { font-weight: 700; color: var(--terracotta); text-underline-offset: 3px; }
+  .quote { margin: 0; display: grid; gap: 8px; }
+  .quote blockquote { margin: 0; font-family: var(--display); font-style: italic; font-size: 1.12rem; line-height: 1.45; color: var(--navy-deep); }
+  .quote figcaption { font-size: .9rem; font-weight: 600; color: var(--ink-2); }
+  .hero-quote { max-width: 32em; padding-left: 16px; border-left: 3px solid var(--terracotta); }
+  .plan-quote { background: var(--paper); border-radius: 8px; padding: 14px 16px; }
+  .plan-quote blockquote { font-size: 1.02rem; }
+  .problem-close { margin-top: 36px; max-width: 64ch; font-size: 1.12rem; color: var(--ink-2); }
+  .problem-close strong { color: var(--navy-deep); }
+  .recap { margin: 36px auto 0; max-width: 980px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 22px; display: grid; gap: 14px; }
+  .recap-title { color: #fff; font-weight: 600; text-align: center; }
+  .recap ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .recap li { display: grid; grid-template-columns: 40px 1fr; gap: 10px; align-items: center; }
+  .recap img { width: 40px; border-radius: 2px; }
+  .recap img.lab { aspect-ratio: 1105 / 1430; object-fit: cover; object-position: top; }
+  .recap span { color: var(--on-dark-2); font-size: .88rem; line-height: 1.3; min-width: 0; overflow-wrap: anywhere; }
+  .recap b { display: block; color: #fff; font-size: .92rem; }
 
   .hero-product { display: grid; gap: 22px; justify-items: center; }
   /* Main cover is the star; inside pages are small and muted behind it */
@@ -158,20 +167,10 @@
   .unknowns .ask { font-family: var(--display); font-size: 1.45rem; font-style: italic; color: var(--navy-deep); line-height: 1.25; }
   .unknowns p { color: var(--ink-2); font-size: .98rem; }
 
-  /* ---------- Human connection ---------- */
-  .human .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
-  .photo-frame { position: relative; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; background: var(--green-soft); }
-  .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
   .photo-placeholder {
     position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; padding: 24px;
     border: 2px dashed #9DB5AB; border-radius: 10px; color: var(--green); font-size: .92rem; line-height: 1.45;
   }
-  .photo-placeholder b { font-size: 1rem; color: var(--navy-deep); }
-  .photo-placeholder code { font-family: var(--mono); font-size: .8rem; background: #fff; padding: 2px 6px; border-radius: 4px; }
-  .human.no-photo .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-  .human.no-photo .head { justify-items: center; }
-  .human.no-photo .head .pill { justify-self: center; }
-  .human.no-photo .photo-frame { display: none; }
 
   .placeholder-card { border: 2px dashed #B9C4D0 !important; background: repeating-linear-gradient(135deg, #fff 0 14px, #F7F9FA 14px 28px) !important; }
   .dev-label { display: inline-flex; align-self: start; justify-self: start; font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta); background: var(--terracotta-soft); border-radius: 4px; padding: 3px 8px; }
@@ -256,26 +255,7 @@
   .lab-list li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; color: var(--ink); }
   .lab-list li::before { content: "✓"; font-weight: 700; color: var(--terracotta); }
 
-  .summary { background: var(--navy); color: var(--on-dark); }
-  .summary h2 { color: #fff; }
-  .sum-grid { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .sum-grid li { background: rgba(255,255,255,.06); border-top: 4px solid var(--blush); border-radius: 8px; padding: 20px; display: grid; gap: 8px; align-content: start; }
-  .sum-grid .s-talk { border-top-color: #7FB5A1; }
-  .sum-grid .s-org { border-top-color: #9DB7DA; }
-  .sum-grid .s-act { border-top-color: var(--blush); }
-  .sum-grid .s-lab { border-top-color: #D9DEE5; }
-  .sum-grid .k { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .85rem; color: #fff; }
-  .sum-grid p { color: var(--on-dark-2); font-size: 1.02rem; }
-  .sum-clarify { margin-top: 32px; font-size: clamp(1.08rem, 1.8vw, 1.25rem); font-weight: 600; color: #fff; max-width: 60ch; }
 
-  .deliver { list-style: none; margin: 40px auto 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1000px; }
-  .deliver li { display: grid; justify-items: center; text-align: center; gap: 12px; position: relative; background: var(--paper); border-radius: 10px; padding: 22px 16px; }
-  .deliver img { width: 110px; border-radius: 3px; box-shadow: 0 14px 26px -16px rgba(24,43,70,.7); }
-  .deliver img.lab-thumb { width: 118px; aspect-ratio: 1105 / 1430; object-fit: cover; object-position: top; }
-  .deliver .dn { position: absolute; top: 12px; left: 12px; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; display: grid; place-items: center; }
-  .deliver b { display: block; color: var(--ink); font-size: 1.02rem; line-height: 1.3; }
-  .deliver div span { color: var(--ink-2); font-size: .95rem; }
-  .deliver-line { margin-top: 26px; text-align: center; font-weight: 600; color: var(--ink); }
   .pay-note { font-size: .9rem; font-weight: 600; color: var(--terracotta); text-align: center; margin-top: -8px; }
 
   .ship-note {
@@ -287,14 +267,6 @@
 
 
 
-  /* ---------- Testimonials ---------- */
-  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 44px; }
-  .quote-card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 26px; display: grid; gap: 16px; align-content: start; margin: 0; }
-  .quote-card blockquote { margin: 0; font-family: var(--display); font-size: 1.22rem; line-height: 1.45; color: var(--navy-deep); }
-  .quote-card blockquote::before { content: "\201C"; display: block; font-size: 2.6rem; line-height: .6; color: var(--terracotta); margin-bottom: 6px; }
-  .quote-card .who { font-size: .92rem; color: var(--ink-2); }
-  .quote-card .who b { display: block; color: var(--ink); }
-  .quote-card.placeholder-card blockquote { font-family: var(--body); font-size: .95rem; color: var(--ink-3); }
 
   /* ---------- Pricing ---------- */
   .pricing { background: var(--navy-deep); color: var(--on-dark); }
@@ -375,10 +347,9 @@
   }
   @media (max-width: 900px) {
     .labels-grid { grid-template-columns: 1fr; }
+    .recap ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .labels-img img { max-height: none; width: 100%; max-width: 440px; }
-    .sum-grid { grid-template-columns: 1fr 1fr; }
-    .deliver { grid-template-columns: 1fr 1fr; }
-    .hero .wrap, .guide-intro, .bonus, .human .wrap { grid-template-columns: 1fr; }
+    .hero .wrap, .guide-intro, .bonus { grid-template-columns: 1fr; }
     .hero .wrap { gap: 26px; }
     .hero-copy { display: contents; }
     .hero-copy .pill { order: 1; }
@@ -386,11 +357,9 @@
     .hero-product { order: 3; }
     .hero .lede { order: 4; }
     .hero-actions { order: 5; }
-    .proof { order: 7; }
+    .hero-quote { order: 6; }
     .hero-book { max-width: 420px; }
     .guide-intro .cover-small { display: none; }
-    .human .photo-frame { order: -1; }
-    .quotes { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
     .pricing-grid { grid-template-columns: 1fr; max-width: 560px; gap: 36px; }
     .pricing-grid .plan.best { order: -1; }
   }
@@ -401,6 +370,9 @@
     .lede, .hero .lede, .transition .body { font-size: 1.06rem; }
     .hero-actions { justify-items: stretch; }
     .hero-actions .btn { width: 100%; }
+    .see-pricing { justify-self: center; }
+    .recap { padding: 16px; }
+    .recap-title { font-size: .95rem; }
     .assure { grid-template-columns: 1fr; }
     .unknowns { grid-template-columns: 1fr; }
     .unknowns .ask { font-size: 1.3rem; }
@@ -427,12 +399,6 @@
     .product > :not(.cover-wrap) { grid-column: auto; }
     .product .pname { font-size: 1.75rem; }
     .product .cover { width: 78%; }
-    .sum-grid { grid-template-columns: 1fr; }
-    .deliver { grid-template-columns: 1fr; gap: 10px; }
-    .deliver li { grid-template-columns: 26px 60px 1fr; justify-items: start; text-align: left; align-items: center; padding: 12px 14px; column-gap: 12px; }
-    .deliver img, .deliver img.lab-thumb { width: 60px; grid-column: 2; grid-row: 1; }
-    .deliver .dn { position: static; grid-column: 1; grid-row: 1; width: 26px; height: 26px; font-size: .82rem; }
-    .deliver li > div { grid-column: 3; grid-row: 1; }
     .flow span:not(.arr) { font-size: .82rem; padding: 8px 12px; letter-spacing: .1em; }
 
 
@@ -442,6 +408,9 @@
     .creator-card { grid-template-columns: 1fr; justify-items: center; text-align: center; }
     .creator-photo { width: 128px; height: 128px; }
     .creator-card .dev-label { justify-self: center; }
+  @media (max-width: 400px) {
+    .recap ul { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -459,8 +428,11 @@
         <a class="btn btn-navy" href="#guide">Explore the Guide
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+        <a class="see-pricing" href="#pricing">See pricing</a>
         <p class="format-line">Printable + fillable PDF · Instant digital download</p>
       </div>
+      <!-- One short customer quote (TESTIMONIALS, placement "hero"). Hidden until a real quote is added. -->
+      <figure class="quote hero-quote" data-quote="hero" hidden></figure>
     </div>
 
     <div class="hero-product">
@@ -491,30 +463,7 @@
       <li><span class="ask">Who should we call?</span><p>The doctor, the attorney, the accountant, the insurance agent, and the people who should hear it from family first.</p></li>
       <li><span class="ask">What would they have wanted?</span><p>Their care, their service, and the things they meant to say but never wrote down.</p></li>
     </ul>
-  </div>
-</section>
-
-<!-- ============ HUMAN CONNECTION ============ -->
-<section class="section human" id="together" data-human>
-  <div class="wrap">
-    <div class="head">
-      <span class="pill green">Doing this together</span>
-      <h2 class="measure">One conversation today can make things easier tomorrow.</h2>
-      <p class="lede measure">Not every family knows where the important information is kept. This system gives you a practical way to start, organize it together, and make sure someone knows where to look.</p>
-    </div>
-    <!--
-      FAMILY PHOTO: save a properly licensed photo as assets/family-photo.jpg
-      (landscape, about 1600 × 1200 px). It appears here automatically.
-      Until then this section shows text only.
-    -->
-    <div class="photo-frame">
-      <img src="assets/family-photo.jpg" alt="An adult daughter and her father talking together at the kitchen table" width="1600" height="1200" data-family-photo>
-      <div class="photo-placeholder" data-photo-placeholder hidden>
-        <span class="dev-label">Photo placeholder</span>
-        <b>Adult child and parent at home, at a table with papers</b>
-        <span>Add a licensed photo as <code>assets/family-photo.jpg</code></span>
-      </div>
-    </div>
+    <p class="problem-close"><strong>One conversation today can make things easier tomorrow.</strong> This system gives you a practical way to start, organize it together, and make sure someone knows where to look.</p>
   </div>
 </section>
 
@@ -590,9 +539,7 @@
     <h2 id="before-title">The guide helps you organize the answers. But how do you get those answers in the first place?</h2>
     <p class="urgent">If you have an aging parent, this is a conversation you need to have with them, and the right time is now, while they can still tell you.</p>
     <div class="body">
-      <p>Only your parent knows which accounts exist, where the documents are kept, who to call, and what they would want. If you wait until a hospital stay or a crisis, it may be too late to ask.</p>
-      <p>But talking with a parent about medical information, finances, important documents, and future wishes isn't always easy. They may avoid the subject, feel uncomfortable, or wonder why you're asking.</p>
-      <p>Even after everything is organized, another question remains: when an emergency happens, will your family know what to do first?</p>
+      <p>But it isn't always an easy conversation. Your parent may avoid the subject or wonder why you're asking. And even once everything is organized, will your family know what to do first when an emergency happens?</p>
     </div>
     <p class="turn">That's why there's a more complete way to prepare.</p>
     <div class="offer-card">
@@ -708,48 +655,6 @@
   </div>
 </section>
 
-<!-- ============ BUNDLE SUMMARY ============ -->
-<section class="section summary" aria-labelledby="summary-title">
-  <div class="wrap">
-    <h2 id="summary-title" class="measure">Everything your family needs to move from conversation to organization to action.</h2>
-    <ol class="sum-grid">
-      <li class="s-talk"><span class="k">Talk</span><p>Get the words to start the conversation.</p></li>
-      <li class="s-org"><span class="k">Organize</span><p>Create one reliable place for the essential information.</p></li>
-      <li class="s-act"><span class="k">Act</span><p>Know what needs attention during an emergency and the first week.</p></li>
-      <li class="s-lab"><span class="k">Label</span><p>Make the physical documents easier to identify.</p></li>
-    </ol>
-    <p class="sum-clarify">The Complete Family Bundle includes the 30-page main guide, both companion guides, and the two-sheet printable label pack.</p>
-  </div>
-</section>
-
-<!-- ============ TESTIMONIALS (shown only when TESTIMONIALS has real entries) ============ -->
-<section class="section" id="testimonials" data-testimonials hidden>
-  <div class="wrap">
-    <div class="head center">
-      <span class="pill">Readers</span>
-      <h2 class="measure">What early readers are saying</h2>
-    </div>
-    <div class="quotes" data-quotes></div>
-  </div>
-</section>
-
-<!-- ============ EXACTLY WHAT'S INCLUDED ============ -->
-<section class="section white" id="included">
-  <div class="wrap">
-    <div class="head center">
-      <h2 class="measure">Here's exactly what's included.</h2>
-      <p class="lede">The Complete Family Bundle</p>
-    </div>
-    <ol class="deliver">
-      <li><img src="assets/guide-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span class="dn">1</span><div><b>What They'll Need to Know</b><span>30-page PDF</span></div></li>
-      <li><img src="assets/conversation-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span class="dn">2</span><div><b>Starting the Conversation</b><span>12-page PDF</span></div></li>
-      <li><img src="assets/next-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span class="dn">3</span><div><b>What Happens Next</b><span>14-page PDF</span></div></li>
-      <li><img class="lab-thumb" src="assets/label-pack-vertical.jpg" alt="" width="1479" height="2000" loading="lazy"><span class="dn">4</span><div><b>Family Document Label Pack</b><span>Two printable label sheets</span></div></li>
-    </ol>
-    <p class="deliver-line">Instant digital download · One-time purchase · No physical products shipped</p>
-  </div>
-</section>
-
 <!-- ============ PRICING (first place prices appear) ============ -->
 <section class="section pricing" id="pricing">
   <div class="wrap">
@@ -758,7 +663,15 @@
       <h2 class="measure">Choose how you'd like to prepare.</h2>
       <p class="lede measure">Start with the complete main guide, or get the entire system for the conversation, organization, and first-week action.</p>
     </div>
-    <div class="proof on-dark" data-proof="pricing" hidden></div>
+    <div class="recap" aria-label="What the Complete Family Bundle includes">
+      <p class="recap-title">The Complete Family Bundle includes the 30-page main guide, both companion guides, and the two-sheet printable label pack.</p>
+      <ul>
+        <li><img src="assets/guide-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span><b>What They'll Need to Know</b>30 pages</span></li>
+        <li><img src="assets/conversation-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span><b>Starting the Conversation</b>12 pages</span></li>
+        <li><img src="assets/next-cover.jpg" alt="" width="1105" height="1430" loading="lazy"><span><b>What Happens Next</b>14 pages</span></li>
+        <li><img class="lab" src="assets/label-pack-vertical.jpg" alt="" width="1479" height="2000" loading="lazy"><span><b>Label Pack</b>2 printable sheets</span></li>
+      </ul>
+    </div>
 
     <div class="pricing-grid">
       <div class="plan">
@@ -777,6 +690,7 @@
           <li><span class="ck">✓</span><span>Emergency summary</span></li>
           <li><span class="ck">✓</span><span>Family information organizer</span></li>
         </ul>
+        <figure class="quote plan-quote" data-quote="guide" hidden></figure>
         <div class="spacer"></div>
         <a class="btn btn-navy btn-block" href="#pricing" data-checkout="guide">Get the Guide — $12.99</a>
       </div>
@@ -801,6 +715,8 @@
           <li><span class="ck">✓</span><span>What Happens Next</span></li>
           <li><span class="ck">✓</span><span><span class="bonus-tag">BONUS</span>Family Document Label Pack</span></li>
         </ul>
+        <figure class="quote plan-quote" data-quote="bundle" hidden></figure>
+        <div class="spacer"></div>
         <a class="btn btn-primary btn-block" href="#pricing" data-checkout="bundle">Get the Complete Bundle — $23</a>
       </div>
     </div>
@@ -885,11 +801,22 @@
   var LAUNCH = { endsAt: "" };
 
   /* =====================================================================
-   * TESTIMONIALS — real quotes only, with the reader's permission.
-   * Example: { quote: "…", name: "Sarah M.", detail: "Bought the bundle for her parents" }
-   * The section stays hidden while this list is empty.
+   * TESTIMONIALS — real quotes only, from real customers, testers or reviewers,
+   * with their permission. placement: "hero" (short, 1–2 sentences),
+   * "guide" (under the $12.99 card) or "bundle" (under the $23 card).
+   * Example: { placement: "bundle", quote: "…", name: "Sarah M.", detail: "Bundle buyer" }
+   * A slot stays hidden until it has a real quote.
    * ===================================================================== */
   var TESTIMONIALS = [];
+
+  /* Example quotes, for layout review only. They are NOT real customers and
+   * are shown only while SHOW_PLACEHOLDERS is true, labeled as samples.
+   * Never move these into TESTIMONIALS. */
+  var SAMPLE_TESTIMONIALS = [
+    { placement: "hero", quote: "I found out my dad's whole filing cabinet system three days after he was hospitalized. I wish we'd had this a year earlier.", name: "Rachel M.", detail: "" },
+    { placement: "guide", quote: "We used the main guide over two Sunday afternoons. It didn't feel like paperwork. It felt like we were finally getting ahead of something we'd been avoiding for years.", name: "David T.", detail: "Guide buyer" },
+    { placement: "bundle", quote: "The conversation guide is what actually got my mom to sit down with me. The organizing guide was the easy part after that.", name: "Priya S.", detail: "Bundle buyer" }
+  ];
 
   /* =====================================================================
    * WHY I CREATED THIS — your own photo and words.
@@ -909,10 +836,8 @@
    * TRUST — only real facts.
    * GUARANTEE: your actual refund policy, e.g. "30-day refund, no questions asked."
    *   Shown under both price cards. Empty = hidden.
-   * STAT: a true usage fact, e.g. "Used by 1,200 families". Empty = hidden.
    * ===================================================================== */
   var GUARANTEE = "";
-  var STAT = "";
 
   (function checkout() {
     var buttons = document.querySelectorAll("[data-checkout]");
@@ -961,31 +886,21 @@
     document.head.appendChild(s);
   })();
 
-  (function proof() {
-    // Only the pricing section carries a proof line now.
-    var quote = TESTIMONIALS.filter(function (t) { return t && t.quote; })[0];
-    var hasCreator = CREATOR.name && CREATOR.text && CREATOR.text.length;
-    function build(box, useQuote) {
-      if (!box) return;
-      var parts = [];
-      if (useQuote && quote) {
-        var q = document.createElement("q"); q.textContent = quote.quote;
-        var who = document.createElement("span"); who.textContent = "— " + (quote.name || "") + (quote.detail ? ", " + quote.detail : "");
-        var d = document.createElement("div"); d.appendChild(q); d.appendChild(who); parts.push(d);
-      } else if (hasCreator) {
-        var d2 = document.createElement("div"); var b = document.createElement("b"); b.textContent = "Created by " + CREATOR.name;
-        var sp = document.createElement("span"); sp.textContent = CREATOR.text[0].length > 140 ? CREATOR.text[0].slice(0, 137) + "…" : CREATOR.text[0];
-        d2.appendChild(b); d2.appendChild(sp); parts.push(d2);
+  (function quotes() {
+    var real = TESTIMONIALS.filter(function (t) { return t && t.quote; });
+    var pool = real.concat(SHOW_PLACEHOLDERS ? SAMPLE_TESTIMONIALS : []);
+    document.querySelectorAll("[data-quote]").forEach(function (box) {
+      var place = box.getAttribute("data-quote");
+      var t = pool.filter(function (x) { return x.placement === place; })[0];
+      if (!t) return;
+      if (real.indexOf(t) === -1) {
+        var lbl = document.createElement("span"); lbl.className = "dev-label"; lbl.textContent = "Sample quote · replace before launch";
+        box.appendChild(lbl);
       }
-      if (STAT) { var st = document.createElement("div"); var sb = document.createElement("b"); sb.textContent = STAT; st.appendChild(sb); if (!parts.length) parts.push(st); else parts[0].appendChild(Object.assign(document.createElement("span"), { textContent: STAT })); }
-      if (!parts.length) return;
-      if (!useQuote || !quote) { if (CREATOR.photo && hasCreator) { var img = document.createElement("img"); img.src = CREATOR.photo; img.alt = ""; box.appendChild(img); } else box.style.gridTemplateColumns = "1fr"; }
-      else box.style.gridTemplateColumns = "1fr";
-      parts.forEach(function (x) { box.appendChild(x); });
-      box.hidden = false;
-    }
-    build(document.querySelector('[data-proof="hero"]'), false);
-    build(document.querySelector('[data-proof="pricing"]'), true);
+      var q = document.createElement("blockquote"); q.textContent = t.quote;
+      var c = document.createElement("figcaption"); c.textContent = "— " + t.name + (t.detail ? ", " + t.detail : "");
+      box.appendChild(q); box.appendChild(c); box.hidden = false;
+    });
     if (GUARANTEE) { document.querySelector("[data-guarantee-text]").textContent = GUARANTEE; document.querySelector("[data-guarantee]").hidden = false; }
   })();
 
@@ -995,42 +910,6 @@
     var text = end.toLocaleDateString("en-US", { month: "long", day: "numeric", timeZone: "America/New_York" });
     document.querySelectorAll("[data-launch-date]").forEach(function (el) { el.textContent = text; });
     document.querySelectorAll("[data-launch]").forEach(function (el) { el.hidden = false; });
-  })();
-
-  (function family() {
-    var img = document.querySelector("[data-family-photo]");
-    var ph = document.querySelector("[data-photo-placeholder]");
-    var section = document.querySelector("[data-human]");
-    if (!img) return;
-    function missing() {
-      img.hidden = true;
-      if (SHOW_PLACEHOLDERS) ph.hidden = false; else section.classList.add("no-photo");
-    }
-    img.addEventListener("error", missing);
-    if (img.complete && img.naturalWidth === 0) missing();
-  })();
-
-  (function testimonials() {
-    var section = document.querySelector("[data-testimonials]"), box = document.querySelector("[data-quotes]");
-    var items = TESTIMONIALS.filter(function (t) { return t && t.quote; });
-    function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; }
-    if (items.length) {
-      items.forEach(function (t) {
-        var card = el("figure", "quote-card");
-        card.appendChild(el("blockquote", "", t.quote));
-        var who = el("figcaption", "who"); who.appendChild(el("b", "", t.name || "")); if (t.detail) who.appendChild(document.createTextNode(t.detail));
-        card.appendChild(who); box.appendChild(card);
-      });
-    } else if (SHOW_PLACEHOLDERS) {
-      for (var i = 0; i < 3; i++) {
-        var card = el("div", "quote-card placeholder-card");
-        card.appendChild(el("span", "dev-label", "Testimonial placeholder"));
-        card.appendChild(el("blockquote", "", "Add a real quote from an early reader in the TESTIMONIALS list at the bottom of index.html."));
-        card.appendChild(el("p", "who", "Reader's name · what they bought"));
-        box.appendChild(card);
-      }
-    } else return;
-    section.hidden = false;
   })();
 
   (function creator() {

@@ -12,16 +12,13 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
    Bundle — $23". Until the checkout links are set, clicking one shows "Checkout opens soon".
 3. **Trust lines (real facts only):** `GUARANTEE` is empty, so no refund line is shown. If you ever
    adopt a refund policy, put its exact wording there and it appears under the prices.
-   `STAT` (e.g. a true "Used by N families") shows near the top and the prices. Both hidden while empty.
-   Testimonials and `CREATOR` also feed the short proof line near the top and the prices.
 4. **Launch price (optional, off by default):** set `LAUNCH.endsAt` only to a real date you'll honor.
-5. **Family photo:** save a properly licensed photo (adult child and parent at a table, landscape,
-   about 1600 × 1200) as `assets/family-photo.jpg`. It appears automatically.
-6. **Testimonials and "Why I Created This":** fill in `TESTIMONIALS` and `CREATOR` in the script
-   at the bottom of `index.html`. Use real quotes only, with permission.
-7. **Placeholders:** `SHOW_PLACEHOLDERS` is `false`, so visitors never see placeholder cards.
-   Set it to `true` temporarily if you want to preview the empty photo/testimonial/creator slots.
-8. **Horizontal label-pack image (desktop):** save it as `assets/label-pack-horizontal.jpg`
+5. **Testimonials and "Why I Created This":** add real quotes to `TESTIMONIALS` with a `placement` of
+   `"hero"`, `"guide"` or `"bundle"` (one short quote near the top, one under each price card), and fill
+   in `CREATOR`. Real quotes only, with permission. Empty slots stay hidden.
+6. **Review mode:** `SHOW_PLACEHOLDERS = true` shows the three example quotes (`SAMPLE_TESTIMONIALS`),
+   each labeled "Sample quote · replace before launch". Keep it `false` on the published page.
+7. **Horizontal label-pack image (desktop):** save it as `assets/label-pack-horizontal.jpg`
    and uncomment the `<source>` line in the bonus section. Phones keep `label-pack-vertical.jpg`.
 
 ## Files
