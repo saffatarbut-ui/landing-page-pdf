@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Thank You · What They'll Need to Know</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500&family=Figtree:wght@400;600;700&display=swap">
+<style>
+  /*
+   * Post-purchase page. It deliberately contains NO download links:
+   * files are delivered by Lemon Squeezy (confirmation screen + receipt email),
+   * so opening this page never grants access to anything.
+   */
+  :root { color-scheme: light; --paper:#F3F5F7; --navy:#243F65; --navy-deep:#182B46; --green:#315B4D; --terracotta:#965343; --ink:#1C2836; --ink-2:#4A5767; --rule:#D7DDE4; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 "Figtree", "Segoe UI", system-ui, sans-serif; }
+  .stripe { height: 6px; background: linear-gradient(90deg, var(--navy) 0 33.34%, var(--green) 33.34% 66.67%, var(--terracotta) 66.67%); }
+  main { max-width: 620px; margin: 0 auto; padding: clamp(48px, 10vw, 96px) 16px; display: grid; gap: 20px; }
+  h1 { font: 500 clamp(2rem, 6vw, 2.8rem)/1.15 "Newsreader", Georgia, serif; color: var(--navy-deep); margin: 0; }
+  p { margin: 0; color: var(--ink-2); }
+  ol { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; color: var(--ink-2); }
+  .card { background: #fff; border: 1px solid var(--rule); border-radius: 8px; padding: 22px 24px; display: grid; gap: 12px; }
+  b { color: var(--ink); }
+  a { color: var(--navy); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="stripe" aria-hidden="true"></div>
+<main>
+  <h1>Thank you. Your guides are on their way.</h1>
+  <p>Your download links were shown on the checkout confirmation, and they're also in your receipt email from Lemon Squeezy.</p>
+  <div class="card">
+    <b>Can't find the email?</b>
+    <ol>
+      <li>Give it a few minutes, then check your spam or promotions folder.</li>
+      <li>Search your inbox for "Lemon Squeezy" or "What They'll Need to Know".</li>
+      <li>Still nothing? Reply to any message from us, or use the support link in your receipt.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <b>Where to start</b>
+    <p>Open What They'll Need to Know and go to the "Start Here" page. Five things, about fifteen minutes.</p>
+  </div>
+  <p><a href="index.html">Back to the main page</a></p>
+</main>
+</body>
+</html>
