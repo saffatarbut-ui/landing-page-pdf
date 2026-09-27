@@ -1,15 +1,15 @@
 # What They'll Need to Know — landing page
 
 A static, responsive sales page (`index.html` + `assets/`) for the *What They'll Need to Know*
-guide ($9.99) and the Complete Family Bundle ($17.99). No build step.
+guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
 
 ## Before going live
 
 1. **Checkout links:** paste your two Lemon Squeezy checkout URLs into the `CHECKOUT` block
    near the bottom of `index.html`. Full steps, file delivery, and testing are in
    [`CHECKOUT-SETUP.md`](CHECKOUT-SETUP.md).
-2. **Waitlist (until checkout is live):** while a checkout link is missing, both price buttons say
-   "Join the waitlist" and an email form appears under the prices. Connect it by pasting your email
+2. **Waitlist (until checkout is live):** while a checkout link is missing, both price buttons read
+   "Checkout opens soon · Join the waitlist" and a separate email form appears under the prices. Connect it by pasting your email
    tool's form address into `WAITLIST.action` (Formspree, Kit, Mailchimp, Buttondown…).
    `WAITLIST.earlyBird` currently promises an early-bird launch discount: create a real discount
    code in Lemon Squeezy and email it to the waitlist, or clear the line.

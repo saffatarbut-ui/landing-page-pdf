@@ -30,8 +30,8 @@ As a thank-you for joining the waitlist, here's your early-bird discount:
 **[DISCOUNT, e.g. 20% off] with code [CODE], through [END DATE].**
 
 Two ways to get it:
-- **The Guide ($9.99):** What They'll Need to Know. [GUIDE CHECKOUT LINK]
-- **The Complete Family Bundle ($17.99):** the guide, Starting the Conversation, What Happens
+- **The Guide ($12.99):** What They'll Need to Know. [GUIDE CHECKOUT LINK]
+- **The Complete Family Bundle ($23.00):** the guide, Starting the Conversation, What Happens
   Next, and the printable label pack. [BUNDLE CHECKOUT LINK]
 
 Instant digital download. Nothing is shipped. [Your refund policy, e.g. "30-day refund, no
@@ -77,8 +77,8 @@ Hi [FIRST NAME, or "there"],
 Quick reminder: your waitlist code **[CODE]** for [DISCOUNT] off ends tonight at
 [TIME] [TIME ZONE].
 
-- The Guide ($9.99): [GUIDE CHECKOUT LINK]
-- The Complete Family Bundle ($17.99): [BUNDLE CHECKOUT LINK]
+- The Guide ($12.99): [GUIDE CHECKOUT LINK]
+- The Complete Family Bundle ($23.00): [BUNDLE CHECKOUT LINK]
 
 If now isn't the right time, no problem. The guides will still be here.
 

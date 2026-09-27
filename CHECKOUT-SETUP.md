@@ -9,12 +9,15 @@ In your Lemon Squeezy dashboard, under **Store → Products → New product**:
 
 | Product | Price | Files to upload (Files section of the product) |
 |---|---|---|
-| What They'll Need to Know | $9.99, single payment | `What They'll Need to Know.pdf` |
-| Complete Family Bundle | $17.99, single payment | `What They'll Need to Know.pdf`, `Starting the Conversation.pdf`, `What Happens Next.pdf`, `Family Document Label Pack.pdf` |
+| What They'll Need to Know | $12.99 USD, single payment | `What They'll Need to Know.pdf` |
+| Complete Family Bundle | $23.00 USD, single payment | `What They'll Need to Know.pdf`, `Starting the Conversation.pdf`, `What Happens Next.pdf`, `Family Document Label Pack.pdf` |
 
 - Upload the PDFs **only** to Lemon Squeezy. Don't put them in this repository or on your web host,
   where anyone with the URL could download them.
 - Don't add the promotional cover image as a page of the label-pack PDF.
+
+**Prices must match the page:** $12.99 for the guide and $23.00 for the bundle. Check both in
+Lemon Squeezy before pasting the links; the page and `index.html`'s product data use these prices.
 
 ## 2. Confirmation and receipts
 
@@ -34,13 +37,16 @@ near the bottom, in the `CHECKOUT` block:
 
 ```js
 var CHECKOUT = {
-  guide:  "https://yourstore.lemonsqueezy.com/buy/…",   // $9.99
-  bundle: "https://yourstore.lemonsqueezy.com/buy/…"    // $17.99
+  guide:  "https://yourstore.lemonsqueezy.com/buy/…",   // $12.99
+  bundle: "https://yourstore.lemonsqueezy.com/buy/…"    // $23.00
 };
 ```
 
-Until a link is filled in, its button stays greyed out, can't be clicked, and a
-"Checkout opens soon" note shows under the pricing cards.
+Until a link is filled in, its button reads "Checkout opens soon · Join the waitlist" and leads
+to the separate waitlist form under the prices. Once both links are set, the buttons read
+"Get the Guide — $12.99" and "Get the Complete Bundle — $23" and open checkout, and the
+waitlist disappears. Also change "PreOrder" to "InStock" in the product data at the top of
+`index.html` when you go live.
 
 **Never paste an API key** into the page. Checkout links are public and safe; API keys are secret.
 
@@ -67,5 +73,5 @@ purchase button. All of that comes from Lemon Squeezy.
 
 ## Launch price (optional)
 
-`LAUNCH.endsAt` in `index.html` shows "Launch price through …" on the $9.99 card and hides
+`LAUNCH.endsAt` in `index.html` shows "Launch price through …" on the $12.99 card and hides
 itself after that moment. Use a real date and raise the price afterward, or set it to `""`.
