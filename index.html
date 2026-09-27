@@ -102,8 +102,6 @@
   .btn-light:hover { background: var(--paper); }
   .btn-block { width: 100%; }
   .btn svg { flex: none; }
-  /* A checkout button with no real link configured yet */
-  .btn.is-disabled, .btn.is-disabled:hover { background: #E4E8ED; color: #7D8896; border-color: #E4E8ED; box-shadow: none; transform: none; cursor: not-allowed; }
 
   /* ---------- Hero ---------- */
   .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(48px, 7vw, 92px); }
@@ -111,8 +109,20 @@
   .hero h1 em { font-style: italic; color: var(--terracotta); }
   .hero .lede { max-width: 31em; font-size: 1.2rem; }
   .hero-actions { display: grid; gap: 14px; justify-items: start; }
-  .format-line { font-size: .92rem; color: var(--ink-3); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .format-line svg { color: var(--green); }
+  .price-teaser { font-size: 1rem; color: var(--ink-2); }
+  .price-teaser b { color: var(--navy-deep); font-size: 1.1rem; }
+  .price-teaser a { color: var(--terracotta); font-weight: 700; text-underline-offset: 3px; }
+  .trust-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .92rem; color: var(--ink-2); }
+  .trust-row li { display: inline-flex; align-items: center; gap: 7px; }
+  .trust-row li::before { content: "✓"; color: var(--green); font-weight: 700; }
+  .proof { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: center; max-width: 34em; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .proof img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+  .proof q { font-family: var(--display); font-style: italic; font-size: 1.1rem; color: var(--navy-deep); quotes: "\201C" "\201D"; }
+  .proof span { display: block; font-size: .9rem; color: var(--ink-2); margin-top: 4px; }
+  .proof b { color: var(--ink); }
+  .proof.on-dark { border-top-color: rgba(255,255,255,.15); margin: 28px auto 0; justify-content: center; }
+  .proof.on-dark q, .proof.on-dark b { color: #fff; }
+  .proof.on-dark span { color: var(--on-dark-2); }
 
   .hero-product { display: grid; gap: 22px; justify-items: center; }
   /* Main cover is the star; inside pages are small and muted behind it */
@@ -156,8 +166,9 @@
   .organizes { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
   .organizes li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-weight: 600; color: var(--ink); }
   .organizes li::before { content: ""; width: 10px; height: 10px; margin-top: .5em; border-radius: 2px; background: var(--navy); }
-  .ways { display: flex; flex-wrap: wrap; gap: 10px; }
-  .way { display: inline-flex; align-items: center; gap: 8px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 14px; font-size: .92rem; font-weight: 600; color: var(--ink); }
+  /* Plain feature tags, not buttons */
+  .ways { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .way { display: inline-flex; align-items: center; gap: 8px; font-size: .95rem; font-weight: 600; color: var(--ink-2); }
   .way svg { color: var(--green); }
 
   .gallery-wrap { margin-top: 56px; }
@@ -165,6 +176,8 @@
   .gallery figure { margin: 0; display: grid; gap: 12px; align-content: start; }
   .zoom { display: block; width: 100%; padding: 0; border: 1px solid var(--rule); border-radius: 4px; background: #fff; cursor: zoom-in; position: relative; box-shadow: 0 22px 40px -28px rgba(24,43,70,.6); }
   .zoom img { border-radius: 3px; }
+  .zoom picture img { width: 100%; }
+  .shot-label { position: absolute; left: 10px; top: 10px; background: var(--navy); color: #fff; font: 700 .78rem var(--body); letter-spacing: .02em; padding: 5px 10px; border-radius: 6px; }
   .zoom .hint { position: absolute; right: 10px; bottom: 10px; background: rgba(24,43,70,.88); color: #fff; font: 600 .8rem var(--body); padding: 6px 12px; border-radius: 999px; }
   .gallery figcaption { font-size: .95rem; color: var(--ink-2); line-height: 1.45; }
   .gallery figcaption b { display: block; color: var(--ink); font-weight: 700; font-size: 1.02rem; }
@@ -195,6 +208,8 @@
   .product h3 { font-size: 1.6rem; }
   .product .sub { font-family: var(--display); font-style: italic; font-size: 1.15rem; color: var(--ink-2); line-height: 1.35; }
   .product .pages { font-size: .88rem; font-weight: 700; color: var(--ink-3); letter-spacing: .02em; }
+  .product .when { font-size: .95rem; color: var(--ink); background: var(--paper); border-radius: 6px; padding: 8px 12px; }
+  .product .when b { color: var(--navy); }
   .product ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .98rem; color: var(--ink-2); }
   .product li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
   .product li::before { content: "✓"; font-weight: 700; color: var(--green); }
@@ -219,17 +234,6 @@
   }
   .clarify svg { color: var(--blush); }
 
-  /* ---------- How they work together ---------- */
-  .journey { list-style: none; margin: 52px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
-  .journey::before { content: ""; position: absolute; left: 12px; right: 12px; top: 13px; height: 2px; background: var(--rule); }
-  .journey li { position: relative; display: grid; gap: 10px; align-content: start; }
-  .journey .dot { width: 28px; height: 28px; border-radius: 50%; background: var(--sheet); border: 3px solid var(--navy); }
-  .journey li.j-talk .dot { border-color: var(--green); }
-  .journey li.j-act .dot { border-color: var(--terracotta); }
-  .journey li.j-bonus .dot { border-style: dashed; border-color: var(--ink-3); }
-  .journey .when { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
-  .journey b { font-family: var(--display); font-weight: 500; font-size: 1.3rem; color: var(--navy-deep); line-height: 1.2; }
-  .journey p { color: var(--ink-2); font-size: .98rem; }
 
   /* ---------- Comparison ---------- */
   .compare { margin: 44px auto 0; max-width: 900px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
@@ -288,7 +292,28 @@
   .buy-line { margin-top: 30px; text-align: center; color: var(--on-dark); font-weight: 600; }
   .secure { margin: 10px auto 0; max-width: 62ch; text-align: center; color: var(--on-dark-2); font-size: .92rem; display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
   .secure svg { flex: none; margin-top: 3px; color: var(--blush); }
-  .checkout-status { margin: 18px auto 0; max-width: 62ch; text-align: center; font-size: .9rem; color: var(--blush); }
+  .guarantee { margin: 22px auto 0; max-width: 62ch; text-align: center; color: #fff; font-weight: 600; display: flex; gap: 10px; justify-content: center; align-items: center; }
+  .guarantee svg { color: var(--blush); flex: none; }
+
+  /* Waitlist: the conversion goal while checkout isn't connected */
+  .waitlist { margin: 36px auto 0; max-width: 620px; background: var(--sheet); color: var(--ink); border-radius: 12px; padding: clamp(22px, 3.5vw, 32px); display: grid; gap: 12px; text-align: center; }
+  .waitlist h3 { font-size: 1.6rem; }
+  .waitlist p { color: var(--ink-2); }
+  .waitlist .early { color: var(--terracotta); font-weight: 700; }
+  .wl-form { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 6px; }
+  .wl-form input { min-height: 52px; border: 1.5px solid #B9C4D0; border-radius: 6px; padding: 0 14px; font: 1rem var(--body); color: var(--ink); background: #fff; min-width: 0; }
+  .wl-form input:focus { outline: 3px solid var(--navy); outline-offset: 1px; border-color: var(--navy); }
+  .wl-msg { font-weight: 600; min-height: 1.2em; }
+  .wl-msg.ok { color: var(--green) !important; }
+  .wl-msg.err { color: var(--terracotta) !important; }
+  .wl-fine { font-size: .85rem; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Objection handlers right under the prices */
+  .assure { margin: 44px auto 0; max-width: 980px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .assure div { border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 18px 20px; display: grid; gap: 6px; align-content: start; }
+  .assure b { color: #fff; font-size: 1.02rem; }
+  .assure p { color: var(--on-dark-2); font-size: .93rem; }
 
   /* ---------- FAQ ---------- */
   .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(32px, 5vw, 72px); }
@@ -330,10 +355,8 @@
   @media (max-width: 960px) {
     .system { grid-template-columns: 1fr; gap: 44px; max-width: 640px; margin-inline: auto; }
     .product { grid-template-columns: 220px 1fr; column-gap: 28px; }
-    .product .cover-wrap { grid-row: 1 / span 8; align-self: start; padding: 16px 16px 0; }
+    .product .cover-wrap { grid-row: 1 / span 9; align-self: start; padding: 16px 16px 0; }
     .product > :not(.cover-wrap) { grid-column: 2; }
-    .journey { grid-template-columns: 1fr 1fr; row-gap: 36px; }
-    .journey::before { display: none; }
   }
   @media (max-width: 900px) {
     .hero .wrap, .guide-intro, .faq-grid, .bonus, .human .wrap { grid-template-columns: 1fr; }
@@ -344,6 +367,8 @@
     .hero-product { order: 3; }
     .hero .lede { order: 4; }
     .hero-actions { order: 5; }
+    .trust-row { order: 6; }
+    .proof { order: 7; }
     .hero-book { max-width: 420px; }
     .guide-intro .cover-small { display: none; }
     .human .photo-frame { order: -1; }
@@ -358,7 +383,10 @@
     .lede, .hero .lede, .transition .body { font-size: 1.06rem; }
     .hero-actions { justify-items: stretch; }
     .hero-actions .btn { width: 100%; }
-    .format-line { justify-content: center; }
+    .price-teaser { text-align: center; }
+    .trust-row { justify-content: center; }
+    .wl-form { grid-template-columns: 1fr; }
+    .assure { grid-template-columns: 1fr; }
     .unknowns { grid-template-columns: 1fr; }
     .unknowns .ask { font-size: 1.3rem; }
     .organizes { grid-template-columns: 1fr; }
@@ -367,6 +395,7 @@
     .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px var(--gutter) 12px; scrollbar-width: none; }
     .gallery::-webkit-scrollbar { display: none; }
     .gallery figure { flex: 0 0 82%; scroll-snap-align: center; }
+    .gallery .shot-label, .gallery .hint { display: none; }
     .swipe-hint { display: flex; justify-content: center; align-items: center; gap: 8px; font-size: .88rem; color: var(--ink-3); margin-top: 6px; }
     .dots { display: flex; gap: 6px; }
     .dots span { width: 7px; height: 7px; border-radius: 50%; background: #C5CDD6; }
@@ -381,10 +410,6 @@
     .product h3 { font-size: 1.75rem; }
     .product .sub { font-size: 1.2rem; }
 
-    .journey { grid-template-columns: 1fr; row-gap: 26px; padding-left: 4px; }
-    .journey li { grid-template-columns: 28px 1fr; column-gap: 16px; }
-    .journey li > :not(.dot) { grid-column: 2; }
-    .journey .dot { grid-row: 1 / span 3; }
 
     /* Comparison becomes one readable card per benefit */
     .cmp-head { display: none; }
@@ -419,11 +444,15 @@
         <a class="btn btn-navy" href="#guide">Explore the Guide
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14m0 0-6-6m6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <p class="format-line">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Printable + fillable PDF · Instant digital download
-        </p>
+        <p class="price-teaser">Starting at <b>$9.99</b> · <a href="#pricing">See pricing</a></p>
       </div>
+      <ul class="trust-row" aria-label="Product facts">
+        <li>Printable + fillable PDF</li>
+        <li>Instant digital download</li>
+        <li>No passwords or account numbers needed</li>
+      </ul>
+      <!-- Real social proof only: filled from STAT, TESTIMONIALS or CREATOR in the script. Hidden while empty. -->
+      <div class="proof" data-proof="hero" hidden></div>
     </div>
 
     <div class="hero-product">
@@ -510,29 +539,32 @@
       <div class="gallery" id="gallery">
         <figure>
           <button class="zoom" type="button" data-full="assets/guide-start-here.jpg" data-caption="Start Here">
-            <img src="assets/guide-start-here.jpg" alt="The Start Here page listing five first steps" width="935" height="1210" loading="lazy">
-            <span class="hint">Click to enlarge</span>
+            <picture><source media="(max-width: 640px)" srcset="assets/crop-start-here.jpg"><img src="assets/guide-start-here.jpg" alt="The Start Here page listing five first steps" width="935" height="1210" loading="lazy"></picture>
+            <span class="shot-label">Start Here</span>
+            <span class="hint">Click for full page</span>
           </button>
           <figcaption><b>Start Here</b>The five things to do first, in about fifteen minutes.</figcaption>
         </figure>
         <figure>
           <button class="zoom" type="button" data-full="assets/guide-emergency.jpg" data-caption="Emergency Summary">
-            <img src="assets/guide-emergency.jpg" alt="The One-Page Emergency Summary form" width="935" height="1210" loading="lazy">
-            <span class="hint">Click to enlarge</span>
+            <picture><source media="(max-width: 640px)" srcset="assets/crop-emergency.jpg"><img src="assets/guide-emergency.jpg" alt="The One-Page Emergency Summary form" width="935" height="1210" loading="lazy"></picture>
+            <span class="shot-label">Emergency Summary</span>
+            <span class="hint">Click for full page</span>
           </button>
           <figcaption><b>Emergency Summary</b>One page with contacts, doctor, pharmacy, medications, and allergies.</figcaption>
         </figure>
         <figure>
           <button class="zoom" type="button" data-full="assets/guide-financial.jpg" data-caption="Financial Accounts">
-            <img src="assets/guide-financial.jpg" alt="Financial Accounts and Insurance page" width="935" height="1210" loading="lazy">
-            <span class="hint">Click to enlarge</span>
+            <picture><source media="(max-width: 640px)" srcset="assets/crop-financial.jpg"><img src="assets/guide-financial.jpg" alt="Financial Accounts and Insurance page" width="935" height="1210" loading="lazy"></picture>
+            <span class="shot-label">Financial Accounts</span>
+            <span class="hint">Click for full page</span>
           </button>
           <figcaption><b>Financial Accounts</b>Which institutions exist and where details are kept. No balances or account numbers.</figcaption>
         </figure>
       </div>
       <div class="swipe-hint" aria-hidden="true">
         <div class="dots"><span class="on"></span><span></span><span></span></div>
-        Swipe to see more pages · tap to enlarge
+        Swipe for more pages · tap for the full page
       </div>
     </div>
 
@@ -570,6 +602,7 @@
         <h3>Starting the Conversation</h3>
         <p class="sub">A guide to talking with your parent.</p>
         <p class="pages">12-page companion guide</p>
+        <p class="when"><b>First:</b> helps you bring up the subject.</p>
         <ul>
           <li>How to bring up the subject naturally</li>
           <li>Four approaches to opening the conversation</li>
@@ -585,6 +618,7 @@
         <h3>What They'll Need to Know</h3>
         <p class="sub">One place for the information your family may someday need.</p>
         <p class="pages">30-page main guide</p>
+        <p class="when"><b>Then:</b> gives you a place to organize everything.</p>
         <span class="core-badge">The core guide — included in both options</span>
         <ul>
           <li>Organize important contacts and documents</li>
@@ -601,6 +635,7 @@
         <h3>What Happens Next</h3>
         <p class="sub">An Emergency &amp; First-Week Action Guide.</p>
         <p class="pages">14-page action guide</p>
+        <p class="when"><b>When something happens:</b> shows what needs attention and what can wait.</p>
         <ul>
           <li>What to do during a medical emergency</li>
           <li>What needs attention in the first few hours</li>
@@ -637,22 +672,6 @@
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 11v6M12 7.5v.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
       <span>The Complete Family Bundle includes the main guide, BOTH companion guides, and the printable label pack.</span>
     </p>
-  </div>
-</section>
-
-<!-- ============ HOW THEY WORK TOGETHER ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="head">
-      <span class="pill">How they work together</span>
-      <h2 class="measure">From the first conversation to the moment your family needs the information.</h2>
-    </div>
-    <ol class="journey">
-      <li class="j-talk"><span class="dot" aria-hidden="true"></span><span class="when">First</span><b>Starting the Conversation</b><p>helps you bring up the subject.</p></li>
-      <li class="j-organize"><span class="dot" aria-hidden="true"></span><span class="when">Then</span><b>What They'll Need to Know</b><p>gives you a place to organize everything.</p></li>
-      <li class="j-act"><span class="dot" aria-hidden="true"></span><span class="when">When something happens</span><b>What Happens Next</b><p>helps your family see what needs attention and what can wait.</p></li>
-      <li class="j-bonus"><span class="dot" aria-hidden="true"></span><span class="when">Bonus</span><b>Family Document Label Pack</b><p>helps organize the physical papers behind the system.</p></li>
-    </ol>
   </div>
 </section>
 
@@ -708,6 +727,7 @@
       <h2 class="measure">Choose the way you'd like to prepare.</h2>
       <p class="lede measure">Start with the essential guide, or get the complete family preparedness system.</p>
     </div>
+    <div class="proof on-dark" data-proof="pricing" hidden></div>
 
     <div class="pricing-grid">
       <div class="plan">
@@ -759,7 +779,30 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg>
       <span>Secure checkout by Lemon Squeezy. You enter your card details on their checkout, not on this website.</span>
     </p>
-    <p class="checkout-status" data-checkout-status hidden>Checkout opens soon. Purchasing isn't available on this page yet.</p>
+    <p class="guarantee" data-guarantee hidden>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="2"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span data-guarantee-text></span>
+    </p>
+
+    <!-- Shown instead of checkout until both checkout links are set (see WAITLIST in the script) -->
+    <div class="waitlist" id="waitlist" data-waitlist hidden>
+      <h3>Checkout opens soon.</h3>
+      <p>Leave your email and we'll send you one message when the guides are available.</p>
+      <p class="early" data-early hidden></p>
+      <form class="wl-form" data-waitlist-form novalidate>
+        <label class="sr" for="wl-email">Email address</label>
+        <input id="wl-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        <button class="btn btn-primary" type="submit">Notify me</button>
+      </form>
+      <p class="wl-msg" data-wl-msg role="status" aria-live="polite"></p>
+      <p class="wl-fine">We'll only email you about the launch.</p>
+    </div>
+
+    <div class="assure">
+      <div><b>Not a legal will</b><p>An organizing tool that works alongside your will and your attorney's advice.</p></div>
+      <div><b>No sensitive numbers</b><p>The guides record where passwords and account details are kept, not the details themselves.</p></div>
+      <div><b>Nothing stored by this site</b><p>What you write stays in your own PDF. Card details go only to Lemon Squeezy's secure checkout.</p></div>
+    </div>
   </div>
 </section>
 
@@ -895,6 +938,27 @@
    * ===================================================================== */
   var SHOW_PLACEHOLDERS = false;
 
+  /* =====================================================================
+   * WAITLIST — shown in place of checkout until both CHECKOUT links are set.
+   * action: the form address from your email tool, e.g.
+   *   Formspree:  "https://formspree.io/f/xxxxxxx"
+   *   Kit, Mailchimp, Buttondown, etc.: the form's "action" URL
+   * field: the name your tool expects for the email field (usually "email";
+   *   Mailchimp uses "EMAIL").
+   * earlyBird: optional line, e.g. "Waitlist members get 20% off at launch."
+   *   Only promise a discount you'll really give.
+   * ===================================================================== */
+  var WAITLIST = { action: "", field: "email", earlyBird: "" };
+
+  /* =====================================================================
+   * TRUST — only real facts.
+   * GUARANTEE: your actual refund policy, e.g. "30-day refund, no questions asked."
+   *   Shown under both price cards. Empty = hidden.
+   * STAT: a true usage fact, e.g. "Used by 1,200 families". Empty = hidden.
+   * ===================================================================== */
+  var GUARANTEE = "";
+  var STAT = "";
+
   (function checkout() {
     var buttons = document.querySelectorAll("[data-checkout]");
     var isUrl = function (u) { return /^https:\/\/[^\s]+$/.test(u || ""); };
@@ -903,17 +967,16 @@
     buttons.forEach(function (btn) {
       var url = CHECKOUT[btn.getAttribute("data-checkout")];
       if (!isUrl(url)) {
+        // Checkout not connected yet: the button stays solid and leads to the waitlist form.
         anyMissing = true;
-        btn.removeAttribute("href");
-        btn.classList.add("is-disabled");
-        btn.setAttribute("aria-disabled", "true");
-        btn.setAttribute("role", "link");
+        btn.href = "#waitlist";
+        btn.textContent = "Join the waitlist";
         return;
       }
       anyReady = true;
       btn.href = url;   // Hosted checkout: works everywhere, used on phones
     });
-    if (anyMissing) document.querySelector("[data-checkout-status]").hidden = false;
+    if (anyMissing) document.querySelector("[data-waitlist]").hidden = false;
     if (!anyReady) return;
 
     // Desktop: open Lemon Squeezy's official checkout overlay instead of leaving the page.
@@ -925,7 +988,7 @@
     s.defer = true;
     s.onload = function () {
       buttons.forEach(function (btn) {
-        if (!btn.href || btn.classList.contains("is-disabled")) return;
+        if (!isUrl(btn.getAttribute("href"))) return;
         var u = new URL(btn.href);
         u.searchParams.set("embed", "1");
         btn.href = u.toString();
@@ -934,6 +997,55 @@
       if (typeof window.createLemonSqueezy === "function") window.createLemonSqueezy();
     };
     document.head.appendChild(s);
+  })();
+
+  (function waitlist() {
+    var form = document.querySelector("[data-waitlist-form]");
+    if (!form) return;
+    var input = form.querySelector("input"), msg = document.querySelector("[data-wl-msg]");
+    input.name = WAITLIST.field || "email";
+    if (WAITLIST.earlyBird) { var e = document.querySelector("[data-early]"); e.textContent = WAITLIST.earlyBird; e.hidden = false; }
+    function say(text, kind) { msg.textContent = text; msg.className = "wl-msg " + (kind || ""); }
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      if (!input.value || !input.checkValidity()) { say("Please enter a valid email address.", "err"); input.focus(); return; }
+      if (!WAITLIST.action) { say("Sign-ups open very soon. Please check back shortly.", "err"); return; }
+      if (/formspree\.io/.test(WAITLIST.action)) {
+        say("Sending…");
+        fetch(WAITLIST.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
+          .then(function (r) { if (r.ok) { say("You're on the list. We'll email you when it's live.", "ok"); form.reset(); } else throw 0; })
+          .catch(function () { say("That didn't go through. Please try again in a moment.", "err"); });
+      } else {
+        form.action = WAITLIST.action; form.method = "POST"; form.target = "_blank"; form.submit();
+        say("Thanks! Check the new tab to confirm your sign-up.", "ok");
+      }
+    });
+  })();
+
+  (function proof() {
+    var quote = TESTIMONIALS.filter(function (t) { return t && t.quote; })[0];
+    var hasCreator = CREATOR.name && CREATOR.text && CREATOR.text.length;
+    function build(box, useQuote) {
+      var parts = [];
+      if (useQuote && quote) {
+        var q = document.createElement("q"); q.textContent = quote.quote;
+        var who = document.createElement("span"); who.textContent = "— " + (quote.name || "") + (quote.detail ? ", " + quote.detail : "");
+        var d = document.createElement("div"); d.appendChild(q); d.appendChild(who); parts.push(d);
+      } else if (hasCreator) {
+        var d2 = document.createElement("div"); var b = document.createElement("b"); b.textContent = "Created by " + CREATOR.name;
+        var sp = document.createElement("span"); sp.textContent = CREATOR.text[0].length > 140 ? CREATOR.text[0].slice(0, 137) + "…" : CREATOR.text[0];
+        d2.appendChild(b); d2.appendChild(sp); parts.push(d2);
+      }
+      if (STAT) { var st = document.createElement("div"); var sb = document.createElement("b"); sb.textContent = STAT; st.appendChild(sb); if (!parts.length) parts.push(st); else parts[0].appendChild(Object.assign(document.createElement("span"), { textContent: STAT })); }
+      if (!parts.length) return;
+      if (!useQuote || !quote) { if (CREATOR.photo && hasCreator) { var img = document.createElement("img"); img.src = CREATOR.photo; img.alt = ""; box.appendChild(img); } else box.style.gridTemplateColumns = "1fr"; }
+      else box.style.gridTemplateColumns = "1fr";
+      parts.forEach(function (x) { box.appendChild(x); });
+      box.hidden = false;
+    }
+    build(document.querySelector('[data-proof="hero"]'), false);
+    build(document.querySelector('[data-proof="pricing"]'), true);
+    if (GUARANTEE) { document.querySelector("[data-guarantee-text]").textContent = GUARANTEE; document.querySelector("[data-guarantee]").hidden = false; }
   })();
 
   (function launch() {
