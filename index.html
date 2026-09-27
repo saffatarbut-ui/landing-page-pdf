@@ -289,6 +289,8 @@
   .includes .bonus-tag { font-size: .68rem; font-weight: 700; letter-spacing: .1em; color: #fff; background: var(--terracotta); border-radius: 999px; padding: 2px 8px; margin-right: 6px; vertical-align: 2px; }
   .plan .spacer { flex: 1; }
   .plan .diff { font-size: .92rem; color: var(--ink-2); }
+  .value-stack { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; background: var(--terracotta-soft); border-radius: 8px; padding: 12px 14px; font-size: .93rem; color: var(--ink); }
+  .value-stack b { flex-basis: 100%; color: var(--terracotta-dark); font-size: 1.02rem; }
   .buy-line { margin-top: 30px; text-align: center; color: var(--on-dark); font-weight: 600; }
   .secure { margin: 10px auto 0; max-width: 62ch; text-align: center; color: var(--on-dark-2); font-size: .92rem; display: flex; gap: 8px; justify-content: center; align-items: flex-start; }
   .secure svg { flex: none; margin-top: 3px; color: var(--blush); }
@@ -769,6 +771,7 @@
           <li><span class="ck">✓</span><span>What Happens Next</span></li>
           <li><span class="ck">✓</span><span><span class="bonus-tag">BONUS</span>Family Document Label Pack</span></li>
         </ul>
+        <p class="value-stack"><span>The $9.99 guide</span><span>+ Starting the Conversation</span><span>+ What Happens Next</span><span>+ Label pack</span><b>= all four for $17.99</b></p>
         <p class="diff">Everything in the guide, plus both companion guides and the printable label pack, for $8 more.</p>
         <a class="btn btn-primary btn-block" href="#pricing" data-checkout="bundle">Get the Complete Family Bundle</a>
       </div>
@@ -948,7 +951,7 @@
    * earlyBird: optional line, e.g. "Waitlist members get 20% off at launch."
    *   Only promise a discount you'll really give.
    * ===================================================================== */
-  var WAITLIST = { action: "", field: "email", earlyBird: "" };
+  var WAITLIST = { action: "", field: "email", earlyBird: "Join the waitlist for an early-bird launch discount." };
 
   /* =====================================================================
    * TRUST — only real facts.
@@ -956,7 +959,7 @@
    *   Shown under both price cards. Empty = hidden.
    * STAT: a true usage fact, e.g. "Used by 1,200 families". Empty = hidden.
    * ===================================================================== */
-  var GUARANTEE = "";
+  var GUARANTEE = "30-day refund, no questions asked.";
   var STAT = "";
 
   (function checkout() {
@@ -967,10 +970,9 @@
     buttons.forEach(function (btn) {
       var url = CHECKOUT[btn.getAttribute("data-checkout")];
       if (!isUrl(url)) {
-        // Checkout not connected yet: the button stays solid and leads to the waitlist form.
+        // Checkout not connected yet: the button keeps its label and style, and leads to the waitlist form.
         anyMissing = true;
         btn.href = "#waitlist";
-        btn.textContent = "Join the waitlist";
         return;
       }
       anyReady = true;

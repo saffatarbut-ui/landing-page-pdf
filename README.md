@@ -10,9 +10,11 @@ guide ($9.99) and the Complete Family Bundle ($17.99). No build step.
    [`CHECKOUT-SETUP.md`](CHECKOUT-SETUP.md).
 2. **Waitlist (until checkout is live):** while a checkout link is missing, both price buttons say
    "Join the waitlist" and an email form appears under the prices. Connect it by pasting your email
-   tool's form address into `WAITLIST.action` (Formspree, Kit, Mailchimp, Buttondown…). Optional
-   `WAITLIST.earlyBird` line: only promise a discount you'll really give.
-3. **Trust lines (real facts only):** `GUARANTEE` (your actual refund policy) shows under the prices;
+   tool's form address into `WAITLIST.action` (Formspree, Kit, Mailchimp, Buttondown…).
+   `WAITLIST.earlyBird` currently promises an early-bird launch discount: create a real discount
+   code in Lemon Squeezy and email it to the waitlist, or clear the line.
+3. **Trust lines (real facts only):** `GUARANTEE` is set to "30-day refund, no questions asked." and
+   shows under the prices. Honor it (refunds are issued from the Lemon Squeezy dashboard) or change it.
    `STAT` (e.g. a true "Used by N families") shows near the top and the prices. Both hidden while empty.
    Testimonials and `CREATOR` also feed the short proof line near the top and the prices.
 4. **Launch price (optional, off by default):** set `LAUNCH.endsAt` only to a real date you'll honor.
