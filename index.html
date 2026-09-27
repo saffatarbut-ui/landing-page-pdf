@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>What They'll Need to Know</title>
-<meta name="description" content="A printable, fillable family logistics guide so the people you love know where everything is: documents, accounts, doctors, and your wishes. $9.99, or $17.99 for the Complete Family Bundle.">
+<meta name="description" content="A practical, printable system for starting important conversations, organizing essential information, and knowing what to do when something unexpected happens. Complete Family Bundle $17.99, or the guide only for $9.99.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
@@ -24,6 +24,7 @@
     --teal-soft: #E3EEEE;
     --rust: #B5502B;
     --rust-soft: #F6E6DE;
+    --peach: #F3C9B5;
     --ink: #1B2733;
     --ink-2: #4A5866;
     --ink-3: #6B7886;
@@ -53,7 +54,7 @@
   }
   img { max-width: 100%; display: block; }
   h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.12; margin: 0; text-wrap: balance; color: var(--navy-deep); }
-  h1 { font-size: clamp(2.5rem, 6vw, 4.4rem); letter-spacing: -0.015em; }
+  h1 { font-size: clamp(2.4rem, 5.4vw, 4rem); letter-spacing: -0.015em; }
   h2 { font-size: clamp(2rem, 4.2vw, 3rem); letter-spacing: -0.01em; }
   h3 { font-size: 1.45rem; }
   p { margin: 0; }
@@ -64,10 +65,11 @@
   .section { padding-block: clamp(64px, 9vw, 112px); }
   .measure { max-width: 62ch; }
   .lede { font-size: 1.15rem; color: var(--ink-2); }
+  .head { display: grid; gap: 18px; }
 
   /* Label-tab eyebrow, styled after the stickers in the Label Pack */
   .tab {
-    display: inline-flex; align-items: center;
+    display: inline-flex; align-items: center; justify-self: start;
     font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--navy);
@@ -84,10 +86,10 @@
   /* Buttons */
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    font-family: var(--body); font-weight: 600; font-size: 1rem;
+    font-family: var(--body); font-weight: 600; font-size: 1rem; text-align: center;
     text-decoration: none; cursor: pointer;
     padding: 15px 24px; border-radius: 6px; border: 2px solid transparent;
-    transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+    transition: transform .15s ease, background-color .15s ease;
   }
   .btn:hover { transform: translateY(-1px); }
   @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
@@ -97,171 +99,143 @@
   .btn-ghost:hover { background: var(--navy); color: #fff; }
   .btn-light { background: transparent; color: var(--on-navy); border-color: rgba(255,255,255,.45); }
   .btn-light:hover { background: rgba(255,255,255,.1); }
-  .btn .price { font-family: var(--mono); font-weight: 600; font-size: .92rem; opacity: .95; }
+  .btn .price { font-family: var(--mono); font-weight: 600; font-size: .92rem; }
   .btn-block { width: 100%; }
+  .textlink { color: var(--on-navy-2); font-size: .95rem; text-underline-offset: 3px; }
+  .textlink:hover { color: #fff; }
   .checkout-note { font-size: .85rem; color: var(--rust); margin-top: 8px; }
 
   /* ---------- Top bar ---------- */
   .topbar { background: var(--navy-deep); color: var(--on-navy-2); font-size: .88rem; }
-  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 10px; flex-wrap: wrap; }
+  .topbar .wrap { display: flex; justify-content: center; align-items: center; gap: 8px 20px; padding-block: 10px; flex-wrap: wrap; text-align: center; }
   .topbar strong { color: var(--on-navy); font-weight: 600; }
-  .topbar a { color: var(--on-navy); font-weight: 600; text-underline-offset: 3px; }
 
   /* ---------- Hero ---------- */
   .hero { background: var(--navy); color: var(--on-navy); overflow: hidden; }
-  .hero .wrap { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(32px, 5vw, 72px); align-items: center; padding-block: clamp(56px, 8vw, 104px); }
-  .hero h1 { color: #fff; margin-top: 22px; }
-  .hero h1 em { font-style: italic; color: #F3C9B5; }
-  .hero .lede { color: var(--on-navy-2); margin-top: 22px; max-width: 34em; }
-  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
-  .hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 26px 0 0; padding: 0; list-style: none; font-size: .92rem; color: var(--on-navy-2); }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; padding-block: clamp(52px, 7vw, 96px); }
+  .hero h1 { color: #fff; }
+  .hero h1 em { font-style: italic; color: var(--peach); }
+  .hero .lede { color: var(--on-navy-2); max-width: 32em; }
+  .hero-copy { display: grid; gap: 22px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 8px; }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; list-style: none; font-size: .92rem; color: var(--on-navy-2); }
   .hero-facts li { display: flex; align-items: center; gap: 8px; }
   .hero-facts li::before { content: ""; width: 7px; height: 7px; background: var(--rust); border-radius: 1px; }
 
-  .stack { position: relative; aspect-ratio: 1 / 1.02; max-width: 520px; width: 100%; justify-self: center; }
-  .stack img {
-    position: absolute; width: 58%; border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 24px 48px -16px rgba(0,0,0,.55), 0 4px 10px rgba(0,0,0,.2);
+  /* Three covers side by side, the main guide larger in the centre */
+  .shelf { display: grid; gap: 18px; justify-items: center; width: 100%; }
+  .covers { display: grid; grid-template-columns: 1fr 1.3fr 1fr; align-items: end; gap: clamp(8px, 1.6vw, 16px); width: 100%; max-width: 540px; }
+  .covers figure { margin: 0; display: grid; gap: 8px; }
+  .covers img { border-radius: 3px; box-shadow: 0 22px 40px -18px rgba(0,0,0,.6), 0 3px 8px rgba(0,0,0,.2); }
+  .covers figcaption { font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--on-navy-2); text-align: center; }
+  .covers .main figcaption { color: var(--peach); }
+  .bonus-strip {
+    width: 100%; max-width: 540px;
+    display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center;
+    background: rgba(255,255,255,.06); border: 1px dashed rgba(255,255,255,.3); border-radius: 6px;
+    padding: 12px 16px 12px 12px;
   }
-  .stack .s-labels { left: 0; top: 12%; transform: rotate(-7deg); width: 50%; }
-  .stack .s-next { right: 0; top: 4%; transform: rotate(6deg); width: 50%; }
-  .stack .s-conv { left: 8%; top: 30%; transform: rotate(-2deg); width: 50%; }
-  .stack .s-guide { left: 30%; top: 16%; transform: rotate(2.5deg); z-index: 2; }
-  .stack .sticker {
-    position: absolute; z-index: 3; right: 2%; bottom: 6%;
-    background: var(--sheet); color: var(--navy-deep);
-    border-left: 6px solid var(--rust);
-    padding: 12px 16px; border-radius: 2px;
-    font-family: var(--mono); font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-    box-shadow: 0 12px 24px -10px rgba(0,0,0,.5);
-    transform: rotate(-3deg);
-  }
-  .stack .sticker b { display: block; font-family: var(--display); font-size: 1.6rem; letter-spacing: 0; text-transform: none; font-weight: 600; color: var(--rust); margin-top: 2px; }
+  .bonus-strip .crop { height: 64px; overflow: hidden; border-radius: 2px; background: #fff; }
+  .bonus-strip .crop img { width: 100%; }
+  .bonus-strip b { display: block; color: #fff; font-weight: 600; }
+  .bonus-strip span { font-size: .88rem; color: var(--on-navy-2); }
+  .bonus-strip .k { font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--peach); display: block; }
 
   /* ---------- Problem ---------- */
-  .questions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; }
-  .q {
-    background: var(--sheet); border: 1px solid var(--rule); border-radius: 4px;
-    padding: 24px 24px 22px;
-    display: grid; gap: 10px; align-content: start;
-  }
-  .q .ask { font-family: var(--display); font-size: 1.45rem; font-style: italic; color: var(--navy-deep); line-height: 1.25; }
-  .q p { color: var(--ink-2); font-size: .98rem; }
+  .unknowns { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; max-width: 900px; }
+  .unknowns li { padding: 20px 0; border-top: 1px solid var(--rule); display: grid; gap: 4px; }
+  .unknowns .ask { font-family: var(--display); font-size: 1.4rem; font-style: italic; color: var(--navy-deep); line-height: 1.25; }
+  .unknowns p { color: var(--ink-2); font-size: .98rem; }
   .problem-close { margin-top: 36px; font-size: 1.15rem; color: var(--ink-2); max-width: 60ch; }
   .problem-close strong { color: var(--ink); }
 
+  /* ---------- Stages ---------- */
+  .stages-sec { background: var(--sheet); border-block: 1px solid var(--rule); }
+  .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+  .stage { border-top: 4px solid var(--navy); padding-top: 22px; display: grid; gap: 12px; align-content: start; }
+  .stage.talk { border-top-color: var(--teal); }
+  .stage.act { border-top-color: var(--rust); }
+  .stage .step { font-family: var(--mono); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .stage .step b { color: var(--ink); }
+  .stage img { width: 46%; border-radius: 2px; border: 1px solid var(--rule); box-shadow: 0 14px 26px -18px rgba(24,42,60,.6); }
+  .stage h3 { font-size: 1.5rem; }
+  .stage p { color: var(--ink-2); }
+  .stage ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .95rem; color: var(--ink-2); }
+  .stage li { display: grid; grid-template-columns: 14px 1fr; gap: 10px; }
+  .stage li::before { content: ""; width: 9px; height: 9px; margin-top: .55em; border: 2px solid var(--rust); border-radius: 1px; }
+  .bonus-row {
+    margin-top: 32px; display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center;
+    background: var(--paper); border: 1px dashed #B8C4CF; border-radius: 6px; padding: 20px 24px;
+  }
+  .bonus-row img { border-radius: 2px; box-shadow: 0 14px 26px -18px rgba(24,42,60,.6); }
+  .bonus-row .step { font-family: var(--mono); font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--rust); }
+  .bonus-row h3 { margin-top: 6px; font-size: 1.4rem; }
+  .bonus-row p { color: var(--ink-2); margin-top: 8px; max-width: 64ch; }
+
+  /* ---------- Previews ---------- */
+  .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 44px; }
+  .gallery figure { margin: 0; display: grid; gap: 10px; align-content: start; }
+  .gallery img { border: 1px solid var(--rule); border-radius: 3px; background: #fff; box-shadow: 0 18px 36px -24px rgba(24,42,60,.55); }
+  .gallery figcaption { font-size: .9rem; color: var(--ink-2); line-height: 1.4; }
+  .gallery figcaption b { display: block; color: var(--ink); font-weight: 600; }
+  .gallery figcaption span { font-family: var(--mono); font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+  .mid-cta {
+    margin-top: 48px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px;
+    background: var(--navy); color: var(--on-navy); border-radius: 8px; padding: clamp(22px, 3vw, 32px);
+  }
+  .mid-cta p { color: var(--on-navy-2); max-width: 48ch; }
+  .mid-cta p b { color: #fff; font-family: var(--display); font-weight: 500; font-size: 1.5rem; display: block; line-height: 1.2; margin-bottom: 4px; }
+  .mid-cta .ctas { display: grid; gap: 8px; justify-items: center; }
+
   /* ---------- Inside the guide ---------- */
   .inside { background: var(--sheet); border-block: 1px solid var(--rule); }
-  .inside-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(32px, 5vw, 64px); align-items: start; margin-top: 44px; }
-  .contents { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); }
-  .contents li {
-    display: grid; grid-template-columns: 2.4rem 1fr auto; gap: 12px; align-items: baseline;
-    padding: 12px 0; border-bottom: 1px solid var(--rule);
-  }
+  .inside-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(32px, 5vw, 64px); align-items: start; margin-top: 44px; }
+  .contents { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--navy); display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  .contents li { display: grid; grid-template-columns: 2.2rem 1fr; gap: 10px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule); }
   .contents .n { font-family: var(--mono); font-size: .82rem; font-weight: 600; color: var(--rust); font-variant-numeric: tabular-nums; }
   .contents .t { font-weight: 600; color: var(--ink); }
-  .contents .t small { display: block; font-weight: 400; color: var(--ink-3); font-size: .9rem; margin-top: 2px; }
-  .contents .p { font-family: var(--mono); font-size: .78rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-
-  .previews { display: grid; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); }
-  .preview-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  figure { margin: 0; }
-  .page-shot { border: 1px solid var(--rule); border-radius: 3px; box-shadow: 0 18px 36px -22px rgba(24,42,60,.45); background: #fff; }
-  figcaption { font-size: .85rem; color: var(--ink-3); margin-top: 8px; }
-  .five {
-    background: var(--teal-soft); border-radius: 4px; padding: 22px 24px;
-    display: grid; gap: 8px;
-  }
-  .five h3 { font-size: 1.25rem; color: var(--teal); }
-  .five p { color: var(--ink-2); font-size: .98rem; }
-
-  .safe-note {
-    margin-top: 28px; display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start;
-    font-size: .95rem; color: var(--ink-2);
-  }
-  .safe-note svg { color: var(--teal); flex: none; margin-top: 2px; }
-
-  /* ---------- Bundle ---------- */
-  .bundle { background: var(--navy-deep); color: var(--on-navy); }
-  .bundle h2 { color: #fff; }
-  .bundle .lede { color: var(--on-navy-2); }
-  .bundle-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: end; }
-  .plus8 {
-    justify-self: end; text-align: right;
-    font-family: var(--display); color: #fff; line-height: 1;
-  }
-  .plus8 .big { font-size: clamp(4rem, 9vw, 6.5rem); font-weight: 500; color: #F3C9B5; letter-spacing: -0.02em; }
-  .plus8 .small { display: block; font-family: var(--body); font-size: .95rem; color: var(--on-navy-2); margin-top: 8px; line-height: 1.4; }
-
-  .addons { display: grid; gap: 20px; margin-top: 52px; }
-  .addon {
-    display: grid; grid-template-columns: 220px 1fr; gap: clamp(20px, 3.5vw, 40px); align-items: start;
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12); border-radius: 6px;
-    padding: clamp(20px, 3vw, 32px);
-  }
-  .addon .shots { display: grid; grid-template-columns: 1fr; gap: 10px; }
-  .addon .shots img { border-radius: 3px; box-shadow: 0 16px 30px -18px rgba(0,0,0,.7); }
-  .addon h3 { color: #fff; font-size: clamp(1.5rem, 2.6vw, 1.9rem); margin-top: 14px; }
-  .addon .for { font-family: var(--display); font-style: italic; font-size: 1.15rem; color: #F3C9B5; margin-top: 6px; }
-  .addon p.desc { color: var(--on-navy-2); margin-top: 14px; max-width: 58ch; }
-  .addon ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
-  .addon li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--on-navy); font-size: .98rem; }
-  .addon li::before { content: ""; width: 10px; height: 10px; margin-top: .55em; border: 2px solid var(--rust); border-radius: 1px; }
-  .quote {
-    margin-top: 20px; padding: 14px 18px; border-left: 3px solid var(--rust);
-    background: rgba(255,255,255,.05); font-family: var(--display); font-style: italic; font-size: 1.1rem; color: var(--on-navy);
-    max-width: 56ch;
-  }
-  .quote cite { display: block; font-family: var(--mono); font-style: normal; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--on-navy-2); margin-top: 8px; }
-  .meta { font-family: var(--mono); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--on-navy-2); margin-top: 16px; }
+  .five { background: var(--teal-soft); border-radius: 4px; padding: 24px 26px; display: grid; gap: 10px; }
+  .five h3 { font-size: 1.3rem; color: var(--teal); }
+  .five ol { margin: 0; padding-left: 1.2em; color: var(--ink-2); display: grid; gap: 4px; }
+  .safe-note { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; font-size: .95rem; color: var(--ink-2); margin-top: 20px; }
+  .safe-note svg { color: var(--teal); margin-top: 2px; }
 
   /* ---------- Pricing ---------- */
   .pricing-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 20px; margin-top: 48px; align-items: stretch; }
-  .plan {
-    background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px;
-    padding: clamp(24px, 3.5vw, 36px);
-    display: flex; flex-direction: column; gap: 22px;
-  }
+  .plan { background: var(--sheet); border: 1px solid var(--rule); border-radius: 8px; padding: clamp(24px, 3.5vw, 36px); display: flex; flex-direction: column; gap: 22px; }
   .plan.best { border: 2px solid var(--navy); box-shadow: 0 30px 60px -34px rgba(24,42,60,.55); position: relative; }
-  .ribbon {
-    position: absolute; top: -14px; left: clamp(24px, 3.5vw, 36px);
-    background: var(--rust); color: #fff; font-family: var(--mono); font-weight: 600; font-size: .72rem;
-    letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px;
-  }
+  .ribbon { position: absolute; top: -14px; left: clamp(24px, 3.5vw, 36px); background: var(--rust); color: #fff; font-family: var(--mono); font-weight: 600; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 2px; }
   .plan h3 { font-size: 1.6rem; }
   .plan .sub { color: var(--ink-3); font-size: .95rem; margin-top: 4px; }
   .amount { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
   .amount .cur { font-family: var(--display); font-size: 3.4rem; line-height: 1; color: var(--navy-deep); font-weight: 500; font-variant-numeric: tabular-nums; }
   .amount .once { color: var(--ink-3); font-size: .92rem; }
-  .includes { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+  .includes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
   .includes li { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: .98rem; }
   .includes .ck { color: var(--teal); font-weight: 700; }
   .includes .x { color: var(--ink-3); }
   .includes li.off { color: var(--ink-3); }
   .includes li.off span:nth-child(2) { text-decoration: line-through; text-decoration-color: rgba(107,120,134,.5); }
-  .includes .pg { font-family: var(--mono); font-size: .76rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .includes .role { font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
+  .includes li.new .role { color: var(--rust); }
   .includes li.new span:nth-child(2) { font-weight: 600; }
-  .includes .tag { font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); background: var(--rust-soft); padding: 2px 6px; border-radius: 2px; margin-left: 6px; white-space: nowrap; }
   .plan .spacer { flex: 1; }
+  .plus { background: var(--rust-soft); color: var(--ink); border-radius: 4px; padding: 12px 16px; font-size: .95rem; }
+  .plus b { color: var(--rust); }
 
-  .math {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-    border: 1px solid var(--rule); border-radius: 4px; background: var(--paper);
-  }
-  .math div { padding: 14px 16px; }
-  .math div + div { border-left: 1px solid var(--rule); }
-  .math b { display: block; font-family: var(--display); font-weight: 500; font-size: 1.6rem; color: var(--navy-deep); line-height: 1.1; font-variant-numeric: tabular-nums; }
-  .math span { font-size: .82rem; color: var(--ink-3); line-height: 1.35; display: block; margin-top: 4px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 28px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+  .fact { padding: 20px 22px; display: grid; gap: 6px; align-content: start; }
+  .fact + .fact { border-left: 1px solid var(--rule); }
+  .fact h4 { margin: 0; font-size: 1rem; font-weight: 700; color: var(--ink); }
+  .fact p { font-size: .9rem; color: var(--ink-2); line-height: 1.5; }
 
-  .fine { margin-top: 22px; font-size: .9rem; color: var(--ink-3); text-align: center; }
-
-  /* ---------- Compare ---------- */
-  .compare-wrap { margin-top: 56px; overflow-x: auto; }
-  table.compare { width: 100%; min-width: 560px; border-collapse: collapse; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; font-size: .96rem; }
+  .compare-wrap { margin-top: 40px; overflow-x: auto; }
+  table.compare { width: 100%; min-width: 560px; border-collapse: collapse; background: var(--sheet); border: 1px solid var(--rule); font-size: .96rem; }
   .compare th, .compare td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
   .compare thead th { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; background: var(--paper); }
   .compare thead th.hl { color: var(--navy); background: var(--teal-soft); }
-  .compare td.c, .compare th.c { text-align: center; width: 18%; font-weight: 700; }
+  .compare td.c, .compare th.c { text-align: center; width: 18%; }
+  .compare td.c { font-weight: 700; }
   .compare td.c.hl { background: #F1F7F7; }
   .compare .yes { color: var(--teal); }
   .compare .no { color: #A8B3BE; font-weight: 400; }
@@ -273,49 +247,62 @@
   .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 72px); }
   details { border-bottom: 1px solid var(--rule); }
   details:first-of-type { border-top: 2px solid var(--navy); }
-  summary {
-    cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative;
-    font-weight: 600; font-size: 1.05rem; color: var(--ink);
-  }
+  summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative; font-weight: 600; font-size: 1.05rem; color: var(--ink); }
   summary::-webkit-details-marker { display: none; }
-  summary::after {
-    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
-    font-family: var(--mono); font-size: 1.3rem; color: var(--rust); font-weight: 500;
-  }
+  summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: 1.3rem; color: var(--rust); font-weight: 500; }
   details[open] summary::after { content: "–"; }
   details .a { padding: 0 0 22px; color: var(--ink-2); max-width: 62ch; }
 
   /* ---------- Final CTA ---------- */
-  .final { background: var(--navy); color: var(--on-navy); text-align: left; }
+  .final { background: var(--navy); color: var(--on-navy); }
   .final .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
   .final h2 { color: #fff; }
-  .final p { color: var(--on-navy-2); margin-top: 16px; font-size: 1.1rem; max-width: 46ch; }
-  .final .ctas { display: grid; gap: 12px; }
+  .final p { color: var(--on-navy-2); font-size: 1.1rem; max-width: 46ch; }
+  .final .ctas { display: grid; gap: 12px; justify-items: center; }
 
   footer { background: var(--navy-deep); color: var(--on-navy-2); font-size: .88rem; padding-block: 36px; }
   footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
   footer p { max-width: 70ch; }
 
-  /* Mobile buy bar */
   .buybar { display: none; }
 
+  @media (max-width: 960px) {
+    .gallery { grid-template-columns: repeat(3, 1fr); }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .fact:nth-child(3) { border-left: 0; }
+    .fact:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
   @media (max-width: 900px) {
-    .hero .wrap, .inside-grid, .bundle-head, .pricing-grid, .faq-grid, .final .wrap { grid-template-columns: 1fr; }
-    .stack { max-width: 440px; }
-    .plus8 { justify-self: start; text-align: left; }
-    .previews { position: static; }
-    .questions { grid-template-columns: 1fr; }
+    .hero .wrap, .inside-grid, .pricing-grid, .faq-grid, .final .wrap { grid-template-columns: 1fr; }
+    .stages { grid-template-columns: 1fr; gap: 36px; }
+    .stage { grid-template-columns: 120px 1fr; column-gap: 20px; }
+    .stage > :not(img) { grid-column: 2; }
+    .stage img { grid-column: 1; grid-row: 1 / span 5; width: 100%; }
     .pricing-grid .plan.best { order: -1; }
+    /* Put the product covers directly under the headline on small screens */
+    .hero .wrap { gap: 22px; }
+    .hero-copy { display: contents; }
+    .hero-copy .tab { order: 1; }
+    .hero h1 { order: 2; }
+    .shelf { order: 3; margin-block: 6px; }
+    .hero .lede { order: 4; }
+    .hero-ctas { order: 5; }
+    .hero-facts { order: 6; }
   }
   @media (max-width: 640px) {
     body { font-size: 16px; padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
-    .addon { grid-template-columns: 1fr; }
-    .addon .shots { grid-template-columns: 1fr 1fr; max-width: 360px; }
     .hero-ctas .btn { width: 100%; }
-    .math b { font-size: 1.3rem; }
-    .math div { padding: 12px 10px; }
-    .topbar .wrap { justify-content: center; text-align: center; }
-    .topbar a { display: none; }
+    .hero-ctas { justify-content: center; }
+    .unknowns { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .contents { grid-template-columns: 1fr; }
+    .stage { grid-template-columns: 1fr; }
+    .stage > :not(img) { grid-column: auto; }
+    .stage img { grid-row: auto; width: 46%; }
+    .bonus-row { grid-template-columns: 1fr; }
+    .bonus-row img { width: 60%; }
+    .facts { grid-template-columns: 1fr; }
+    .fact + .fact { border-left: 0; border-top: 1px solid var(--rule); }
     .buybar {
       display: flex; align-items: center; justify-content: space-between; gap: 12px;
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
@@ -325,7 +312,11 @@
     }
     .buybar .l { font-size: .82rem; color: var(--ink-3); line-height: 1.3; }
     .buybar .l b { display: block; color: var(--ink); font-size: .95rem; }
-    .buybar .btn { padding: 12px 16px; font-size: .95rem; }
+    .buybar .btn { padding: 12px 16px; font-size: .95rem; white-space: nowrap; }
+    .topbar .more { display: none; }
+    .covers figcaption { font-size: .6rem; }
+    .bonus-strip { grid-template-columns: 72px 1fr; }
+    .bonus-strip .crop { height: 52px; }
   }
 </style>
 </head>
@@ -333,39 +324,54 @@
 
 <div class="topbar">
   <div class="wrap">
-    <span><strong>Complete Family Bundle:</strong> 4 printable resources for $17.99. That's 3 extras for $8 more than the guide alone.</span>
-    <a href="#pricing">See the bundle</a>
+    <span><strong>Instant digital download.</strong> The Complete Family Bundle is $17.99<span class="more">, just $8 more than the guide alone</span>.</span>
   </div>
 </div>
 
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="wrap">
-    <div>
-      <span class="tab on-dark">A family logistics guide · not a will</span>
-      <h1>When the day comes, your family <em>won't have to guess.</em></h1>
+    <div class="hero-copy">
+      <span class="tab on-dark">The Complete Family Bundle</span>
+      <h1>Make sure your family knows where to look <em>when it matters most.</em></h1>
       <p class="lede">
-        <strong style="color:#fff;font-weight:600">What They'll Need to Know</strong> is a printable, fillable guide for writing down
-        where everything is: the will, the accounts, the insurance, the doctors, where the passwords are kept, and what you'd want.
-        One place, so the people you love aren't searching drawers during the hardest week of their lives.
+        A practical, printable system for starting important conversations, organizing essential information,
+        and knowing what to do when something unexpected happens.
       </p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#pricing" data-checkout="bundle">Get the Complete Bundle <span class="price">$17.99</span></a>
-        <a class="btn btn-light" href="#pricing" data-checkout="guide">Just the guide <span class="price">$9.99</span></a>
+        <a class="btn btn-primary" href="#pricing" data-checkout="bundle">Get the Complete Family Bundle <span class="price">$17.99</span></a>
+        <a class="textlink" href="#pricing" data-checkout="guide">or get the guide only for $9.99</a>
       </div>
       <ul class="hero-facts">
-        <li>Instant PDF download</li>
-        <li>Fill on screen or print</li>
-        <li>Start with 5 things in about 15 minutes</li>
+        <li>Instant digital download</li>
+        <li>Fill in on screen or print</li>
+        <li>Not a will or legal document</li>
       </ul>
     </div>
 
-    <div class="stack" aria-label="The four resources in the Complete Family Bundle">
-      <img class="s-labels" src="assets/labels-large.jpg" alt="Family Document Label Pack cover sheet with colour-coded folder labels">
-      <img class="s-next" src="assets/next-cover.jpg" alt="Cover of What Happens Next, an emergency and first-week action guide">
-      <img class="s-conv" src="assets/conversation-cover.jpg" alt="Cover of Starting the Conversation, a guide to talking with your parent">
-      <img class="s-guide" src="assets/guide-cover.jpg" alt="Cover of What They'll Need to Know">
-      <div class="sticker">Complete bundle<b>$17.99</b></div>
+    <div class="shelf">
+      <div class="covers">
+        <figure>
+          <img src="assets/conversation-cover.jpg" alt="Cover of Starting the Conversation">
+          <figcaption>Talk</figcaption>
+        </figure>
+        <figure class="main">
+          <img src="assets/guide-cover.jpg" alt="Cover of What They'll Need to Know">
+          <figcaption>Organize</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/next-cover.jpg" alt="Cover of What Happens Next">
+          <figcaption>Act</figcaption>
+        </figure>
+      </div>
+      <div class="bonus-strip">
+        <div class="crop"><img src="assets/labels-large.jpg" alt="Family Document Label Pack sheet"></div>
+        <div>
+          <span class="k">Bonus included</span>
+          <b>Family Document Label Pack</b>
+          <span>Printable labels for the folders and binders behind the guide.</span>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -373,169 +379,166 @@
 <!-- ============ PROBLEM ============ -->
 <section class="section">
   <div class="wrap">
-    <span class="tab rust">The first 48 hours</span>
-    <h2 style="margin-top:18px" class="measure">Grief is hard enough without a scavenger hunt.</h2>
-    <p class="lede measure" style="margin-top:18px">
-      When someone is suddenly in hospital, or gone, the family is left asking the same questions.
-      Usually the only person who knew the answers is the one they can't ask.
-    </p>
-
-    <div class="questions">
-      <div class="q">
-        <span class="ask">"Is there a will? Where is it?"</span>
-        <p>Section 6 records where the will, power of attorney, and healthcare directive are kept. Just the location, not what they say.</p>
-      </div>
-      <div class="q">
-        <span class="ask">"Which bank? Was there life insurance?"</span>
-        <p>Section 7 lists the institutions and policies that exist, so nothing gets missed. No balances, no account numbers.</p>
-      </div>
-      <div class="q">
-        <span class="ask">"Who do we even call first?"</span>
-        <p>Sections 2 and 4 give a calm order of operations and the people to notify, starting with pets and dependents.</p>
-      </div>
+    <div class="head">
+      <span class="tab rust">The problem</span>
+      <h2 class="measure">The information exists. But does anyone know where it is?</h2>
+      <p class="lede measure">
+        Most families have the paperwork somewhere. When someone is suddenly in hospital, or gone,
+        the hard part is that the one person who knew where everything was is the one nobody can ask.
+      </p>
     </div>
+
+    <ul class="unknowns">
+      <li><span class="ask">Which accounts exist?</span><p>Banks, retirement accounts, life insurance, the subscription still charging a card every month.</p></li>
+      <li><span class="ask">Where are the important documents?</span><p>The will, the power of attorney, the healthcare directive, the deed, the car title.</p></li>
+      <li><span class="ask">Who should we call?</span><p>The doctor, the attorney, the accountant, the insurance agent, the people who should hear it from family first.</p></li>
+      <li><span class="ask">What would they have wanted?</span><p>Their care, their service, and the things they meant to say but never wrote down.</p></li>
+    </ul>
 
     <p class="problem-close">
-      <strong>Fill it in once, keep it current, and tell one person where it lives.</strong>
-      That single step turns a week of guessing into a list someone can follow.
+      <strong>This bundle turns that uncertainty into a plan.</strong>
+      One conversation, one organized guide, and a clear checklist for the day it's needed.
     </p>
   </div>
 </section>
 
-<!-- ============ INSIDE THE GUIDE ============ -->
-<section class="section inside" id="inside">
+<!-- ============ THREE STAGES ============ -->
+<section class="section stages-sec" id="bundle">
   <div class="wrap">
-    <span class="tab">The main guide · 30 pages</span>
-    <h2 style="margin-top:18px" class="measure">Twelve sections. Everything they'd otherwise have to hunt for.</h2>
-    <p class="lede measure" style="margin-top:18px">
-      Clear prompts and fill-in tables, written in plain language. Skip anything that doesn't apply and come back to the rest later.
-    </p>
+    <div class="head">
+      <span class="tab">How the bundle works</span>
+      <h2 class="measure">Three steps: talk, organize, act.</h2>
+      <p class="lede measure">Each guide handles one stage, and they point to each other, so nothing falls through the gaps.</p>
+    </div>
 
+    <div class="stages">
+      <article class="stage talk">
+        <img src="assets/conversation-cover.jpg" alt="Starting the Conversation cover" loading="lazy">
+        <span class="step"><b>01</b> · Talk</span>
+        <h3>Starting the Conversation</h3>
+        <p>Find the words to begin an important conversation with your parent.</p>
+        <ul>
+          <li>Four gentle ways to open the topic</li>
+          <li>What to say when they push back</li>
+          <li>A first-conversation worksheet</li>
+        </ul>
+      </article>
+      <article class="stage organize">
+        <img src="assets/guide-cover.jpg" alt="What They'll Need to Know cover" loading="lazy">
+        <span class="step"><b>02</b> · Organize</span>
+        <h3>What They'll Need to Know</h3>
+        <p>Put essential contacts, documents, accounts and wishes in one organized place.</p>
+        <ul>
+          <li>A one-page emergency summary</li>
+          <li>Where the will, policies, and accounts are kept</li>
+          <li>Care and service wishes, and who to notify</li>
+        </ul>
+      </article>
+      <article class="stage act">
+        <img src="assets/next-cover.jpg" alt="What Happens Next cover" loading="lazy">
+        <span class="step"><b>03</b> · Act</span>
+        <h3>What Happens Next</h3>
+        <p>Know what needs attention during an emergency and the first week.</p>
+        <ul>
+          <li>What to do in a medical emergency</li>
+          <li>The first hours, first day, and days 2–7 after a death</li>
+          <li>What can safely wait</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="bonus-row">
+      <img src="assets/labels-large.jpg" alt="Family Document Label Pack" loading="lazy">
+      <div>
+        <span class="step">Bonus · included in the bundle</span>
+        <h3>Family Document Label Pack</h3>
+        <p>Organize the physical papers behind the guide. Colour-coded labels for folders, binders, and boxes, matching the guide's categories: Emergency Information, Will &amp; Estate, Insurance Policies, Digital Access, and more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREVIEWS ============ -->
+<section class="section" id="inside">
+  <div class="wrap">
+    <div class="head">
+      <span class="tab teal">Look inside</span>
+      <h2 class="measure">See exactly what you're getting.</h2>
+      <p class="lede measure">These are real pages from the bundle. Clear prompts, plain language, and space to write.</p>
+    </div>
+
+    <div class="gallery">
+      <figure>
+        <img src="assets/guide-emergency.jpg" alt="The One-Page Emergency Summary form" loading="lazy">
+        <figcaption><span>What They'll Need to Know</span><b>Emergency Summary</b>One page with contacts, doctor, medications, and allergies.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/guide-financial.jpg" alt="Financial Accounts and Insurance page" loading="lazy">
+        <figcaption><span>What They'll Need to Know</span><b>Financial Accounts</b>Which institutions exist. No balances or account numbers.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/conversation-openers.jpg" alt="Page with example conversation openers" loading="lazy">
+        <figcaption><span>Starting the Conversation</span><b>Ways to open it</b>Example words for different kinds of parents.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/next-can-wait.jpg" alt="What Can Wait page" loading="lazy">
+        <figcaption><span>What Happens Next</span><b>What Can Wait</b>What needs attention now, and what doesn't.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/labels-small.jpg" alt="Sheet of small binder and folder labels" loading="lazy">
+        <figcaption><span>Label Pack</span><b>Printable labels</b>Folder and binder labels, with blanks for your own.</figcaption>
+      </figure>
+    </div>
+
+    <div class="mid-cta">
+      <p><b>Everything on this page, in one download.</b>Three guides and the label pack, ready to fill in tonight.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#pricing" data-checkout="bundle">Get the Complete Family Bundle <span class="price">$17.99</span></a>
+        <a class="textlink" href="#pricing" data-checkout="guide">or get the guide only for $9.99</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIDE THE MAIN GUIDE ============ -->
+<section class="section inside">
+  <div class="wrap">
+    <div class="head">
+      <span class="tab">Inside What They'll Need to Know</span>
+      <h2 class="measure">Everything they'd otherwise have to hunt for.</h2>
+    </div>
     <div class="inside-grid">
       <ol class="contents">
-        <li><span class="n">01</span><span class="t">One-Page Emergency Summary<small>Contacts, doctor, pharmacy, allergies, medications. Built to print and stand alone.</small></span><span class="p">p.5</span></li>
-        <li><span class="n">02</span><span class="t">The First 48 Hours<small>Pets, dependents, and a general order of calls.</small></span><span class="p">p.6</span></li>
-        <li><span class="n">03</span><span class="t">Who's Doing What<small>Who handles which task, so nobody doubles up or drops one.</small></span><span class="p">p.7</span></li>
-        <li><span class="n">04</span><span class="t">People to Know &amp; Notify</span><span class="p">p.8</span></li>
-        <li><span class="n">05</span><span class="t">Medical &amp; Care</span><span class="p">p.9</span></li>
-        <li><span class="n">06</span><span class="t">Legal Documents</span><span class="p">p.11</span></li>
-        <li><span class="n">07</span><span class="t">Financial Accounts &amp; Insurance</span><span class="p">p.13</span></li>
-        <li><span class="n">08</span><span class="t">Property &amp; Belongings</span><span class="p">p.16</span></li>
-        <li><span class="n">09</span><span class="t">Digital Life<small>Email, cloud storage, social accounts, and where access instructions are kept.</small></span><span class="p">p.18</span></li>
-        <li><span class="n">10</span><span class="t">Bills &amp; Recurring Responsibilities</span><span class="p">p.20</span></li>
-        <li><span class="n">11</span><span class="t">Wishes &amp; Preferences<small>Care, service, and the things you'd want them to know.</small></span><span class="p">p.22</span></li>
-        <li><span class="n">12</span><span class="t">Notes &amp; Updates Log</span><span class="p">p.26</span></li>
+        <li><span class="n">01</span><span class="t">Emergency Summary</span></li>
+        <li><span class="n">02</span><span class="t">The First 48 Hours</span></li>
+        <li><span class="n">03</span><span class="t">Who's Doing What</span></li>
+        <li><span class="n">04</span><span class="t">People to Know &amp; Notify</span></li>
+        <li><span class="n">05</span><span class="t">Medical &amp; Care</span></li>
+        <li><span class="n">06</span><span class="t">Legal Documents</span></li>
+        <li><span class="n">07</span><span class="t">Financial Accounts &amp; Insurance</span></li>
+        <li><span class="n">08</span><span class="t">Property &amp; Belongings</span></li>
+        <li><span class="n">09</span><span class="t">Digital Life</span></li>
+        <li><span class="n">10</span><span class="t">Bills &amp; Recurring</span></li>
+        <li><span class="n">11</span><span class="t">Wishes &amp; Preferences</span></li>
+        <li><span class="n">12</span><span class="t">Notes &amp; Updates Log</span></li>
       </ol>
-
-      <div class="previews">
-        <div class="preview-pair">
-          <figure>
-            <img class="page-shot" src="assets/guide-start-here.jpg" alt="The Start Here page listing five first steps" loading="lazy">
-            <figcaption>Start Here: the five things to do first</figcaption>
-          </figure>
-          <figure>
-            <img class="page-shot" src="assets/guide-emergency.jpg" alt="The One-Page Emergency Summary form" loading="lazy">
-            <figcaption>The One-Page Emergency Summary</figcaption>
-          </figure>
-        </div>
-        <div class="five">
-          <h3>Short on time? Do five things.</h3>
-          <p>Emergency contacts and medications. Where the will is. Where financial information lives. Who to call. And telling one person the guide exists. About fifteen minutes, and the most useful information is already written down.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="safe-note measure">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="2" fill="none"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <p><strong style="color:var(--ink)">Designed to be safe to keep in a drawer.</strong> The guide never asks for passwords, PINs, Social Security numbers, or full account numbers. It records <em>where</em> that information is kept, not the information itself.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BUNDLE ============ -->
-<section class="section bundle" id="bundle">
-  <div class="wrap">
-    <div class="bundle-head">
       <div>
-        <span class="tab on-dark">The Complete Family Bundle</span>
-        <h2 style="margin-top:18px">The guide tells them <em style="font-style:italic;color:#F3C9B5">where</em>. The bundle helps with <em style="font-style:italic;color:#F3C9B5">how</em>.</h2>
-        <p class="lede" style="margin-top:18px;max-width:54ch">
-          A filled-in guide is the goal. Getting a parent to sit down and fill it in is often the hard part, and knowing what to do on the worst day is another. The bundle adds three resources built for exactly those moments.
-        </p>
+        <div class="five">
+          <h3>Short on time? Start with five things.</h3>
+          <ol>
+            <li>Emergency contacts and medications</li>
+            <li>Where the will and legal documents are</li>
+            <li>Where financial information lives</li>
+            <li>Who to call, and in what order</li>
+            <li>Tell one person the guide exists</li>
+          </ol>
+          <p style="color:var(--ink-2)">About fifteen minutes, and the most useful information is already written down.</p>
+        </div>
+        <div class="safe-note">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="2"/><path d="m8.5 12 2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p><strong style="color:var(--ink)">Safe to keep in a drawer.</strong> The guide never asks for passwords, PINs, Social Security numbers, or full account numbers. It records <em>where</em> that information is kept.</p>
+        </div>
       </div>
-      <div class="plus8" aria-label="Three extra resources for eight dollars more">
-        <span class="big">+$8</span>
-        <span class="small">gets you all three companion<br>resources below, about $2.67 each</span>
-      </div>
-    </div>
-
-    <div class="addons">
-      <!-- Starting the Conversation -->
-      <article class="addon">
-        <div class="shots">
-          <img src="assets/conversation-cover.jpg" alt="Starting the Conversation cover" loading="lazy">
-          <img src="assets/conversation-openers.jpg" alt="Page showing four ways to open the conversation, with example scripts" loading="lazy">
-        </div>
-        <div>
-          <span class="tab on-dark">Companion guide · 12 pages</span>
-          <h3>Starting the Conversation</h3>
-          <p class="for">For when the person who needs to fill it in is your mom or dad.</p>
-          <p class="desc">
-            Most parents don't put this off because they don't care. They put it off because the topic feels loaded. This guide gives you the words to open it gently, and what to say when they push back.
-          </p>
-          <ul>
-            <li>Four ready-to-use openers, from "I'm doing mine too" to the direct ask</li>
-            <li>A quick match-up: which approach fits a private, anxious, or fiercely independent parent</li>
-            <li>What to say to "I'm not dying, why are you asking?" and "Are you after my money?"</li>
-            <li>A "don't open with / try instead" list and a first-conversation worksheet</li>
-          </ul>
-          <p class="quote">"I've been putting together one of these family info guides for myself. It made me realize I have no idea about half of that stuff for you."<cite>Opener A · from the guide</cite></p>
-        </div>
-      </article>
-
-      <!-- What Happens Next -->
-      <article class="addon">
-        <div class="shots">
-          <img src="assets/next-cover.jpg" alt="What Happens Next cover" loading="lazy">
-          <img src="assets/next-days.jpg" alt="Days 4 to 7 checklist page" loading="lazy">
-        </div>
-        <div>
-          <span class="tab on-dark">Action guide · 14 pages</span>
-          <h3>What Happens Next</h3>
-          <p class="for">For a sudden hospitalization, emergency, or death.</p>
-          <p class="desc">
-            When something unexpected happens, everything feels urgent. This is a step-by-step checklist for the first week, organized by what can't wait and what can. It points back to the right section of the main guide at each step.
-          </p>
-          <ul>
-            <li>Right now, today, this week: a triage page for the first moments</li>
-            <li>What to bring and do if there's a medical emergency</li>
-            <li>If a death has occurred: the first few hours, the first 24 hours, days 2–3, and days 4–7</li>
-            <li>A "what can wait" page, so no one rushes into permanent decisions</li>
-          </ul>
-          <p class="quote">"You do not need to do everything today."<cite>Start Here · from the guide</cite></p>
-        </div>
-      </article>
-
-      <!-- Label pack -->
-      <article class="addon">
-        <div class="shots">
-          <img src="assets/labels-large.jpg" alt="Sheet of large colour-coded file labels" loading="lazy">
-          <img src="assets/labels-small.jpg" alt="Sheet of small binder and folder labels" loading="lazy">
-        </div>
-        <div>
-          <span class="tab on-dark">Printable stickers · 2 sheets</span>
-          <h3>Family Document Label Pack</h3>
-          <p class="for">For the paper side of things.</p>
-          <p class="desc">
-            The guide says where the papers are. The labels make them easy to spot when someone gets there. Print on full-sheet sticker paper and label the folders, binders, and boxes that hold the originals.
-          </p>
-          <ul>
-            <li>21 large colour-coded labels: Emergency Information, Will &amp; Estate, Insurance Policies, Digital Access, Funeral &amp; Service Wishes, and more</li>
-            <li>30 small binder and folder labels, including To Review, Originals, Needs Signature, and custom blanks</li>
-            <li>Categories line up with the sections of the main guide</li>
-          </ul>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -543,73 +546,86 @@
 <!-- ============ PRICING ============ -->
 <section class="section" id="pricing">
   <div class="wrap">
-    <span class="tab rust">Choose your version</span>
-    <h2 style="margin-top:18px" class="measure">One payment. Download instantly. Use it for years.</h2>
-    <p class="lede measure" style="margin-top:18px">Both options are yours to fill in, print, and reprint as often as you need. If you're doing this with a parent, the bundle also covers the hardest part: getting started.</p>
+    <div class="head">
+      <span class="tab rust">Instant digital download</span>
+      <h2 class="measure">Choose your version.</h2>
+      <p class="lede measure">One payment. Download right away, fill it in on screen or print it, and reprint whenever you update it.</p>
+    </div>
 
     <div class="pricing-grid">
-      <!-- Guide only -->
       <div class="plan">
         <div>
-          <h3>The Guide</h3>
+          <h3>The Guide Only</h3>
           <p class="sub">What They'll Need to Know</p>
         </div>
         <div class="amount"><span class="cur">$9.99</span><span class="once">one-time</span></div>
         <ul class="includes">
-          <li><span class="ck">✓</span><span>What They'll Need to Know</span><span class="pg">30 pp</span></li>
-          <li class="off"><span class="x">–</span><span>Starting the Conversation</span><span class="pg"></span></li>
-          <li class="off"><span class="x">–</span><span>What Happens Next</span><span class="pg"></span></li>
-          <li class="off"><span class="x">–</span><span>Family Document Label Pack</span><span class="pg"></span></li>
+          <li><span class="ck">✓</span><span>What They'll Need to Know</span><span class="role">Organize</span></li>
+          <li class="off"><span class="x">–</span><span>Starting the Conversation</span><span class="role">Talk</span></li>
+          <li class="off"><span class="x">–</span><span>What Happens Next</span><span class="role">Act</span></li>
+          <li class="off"><span class="x">–</span><span>Family Document Label Pack</span><span class="role">Bonus</span></li>
         </ul>
         <div class="spacer"></div>
         <div>
-          <a class="btn btn-ghost btn-block" href="#" data-checkout="guide">Buy the guide · $9.99</a>
+          <a class="btn btn-ghost btn-block" href="#" data-checkout="guide">Get the guide only · $9.99</a>
           <p class="checkout-note" hidden></p>
         </div>
       </div>
 
-      <!-- Bundle -->
       <div class="plan best">
         <span class="ribbon">Best value</span>
         <div>
           <h3>The Complete Family Bundle</h3>
-          <p class="sub">The guide plus three companion resources</p>
+          <p class="sub">Talk, organize, and act, plus the label pack</p>
         </div>
-        <div class="amount"><span class="cur">$17.99</span><span class="once">one-time · all four resources</span></div>
+        <div class="amount"><span class="cur">$17.99</span><span class="once">one-time</span></div>
         <ul class="includes">
-          <li><span class="ck">✓</span><span>What They'll Need to Know</span><span class="pg">30 pp</span></li>
-          <li class="new"><span class="ck">✓</span><span>Starting the Conversation <span class="tag">Talk to parents</span></span><span class="pg">12 pp</span></li>
-          <li class="new"><span class="ck">✓</span><span>What Happens Next <span class="tag">First week</span></span><span class="pg">14 pp</span></li>
-          <li class="new"><span class="ck">✓</span><span>Family Document Label Pack <span class="tag">51 labels</span></span><span class="pg">2 sheets</span></li>
+          <li><span class="ck">✓</span><span>What They'll Need to Know</span><span class="role">Organize</span></li>
+          <li class="new"><span class="ck">✓</span><span>Starting the Conversation</span><span class="role">Talk</span></li>
+          <li class="new"><span class="ck">✓</span><span>What Happens Next</span><span class="role">Act</span></li>
+          <li class="new"><span class="ck">✓</span><span>Family Document Label Pack</span><span class="role">Bonus</span></li>
         </ul>
-        <div class="math">
-          <div><b>4</b><span>resources instead of 1</span></div>
-          <div><b>+$8</b><span>more than the guide alone</span></div>
-          <div><b>$4.50</b><span>per resource, vs $9.99</span></div>
-        </div>
+        <p class="plus">Everything in the guide, plus <b>three more resources for just $8 more.</b></p>
         <div>
-          <a class="btn btn-primary btn-block" href="#" data-checkout="bundle">Get the Complete Bundle · $17.99</a>
+          <a class="btn btn-primary btn-block" href="#" data-checkout="bundle">Get the Complete Family Bundle · $17.99</a>
           <p class="checkout-note" hidden></p>
         </div>
       </div>
     </div>
 
-    <p class="fine">Digital PDF download. Nothing is shipped. Printable at home on letter-size paper.</p>
+    <div class="facts">
+      <div class="fact">
+        <h4>Instant digital download</h4>
+        <p>You get the PDFs right after checkout. Nothing is shipped.</p>
+      </div>
+      <div class="fact">
+        <h4>Fillable and printable</h4>
+        <p>All three guides can be filled in on screen or printed. Letter size.</p>
+      </div>
+      <div class="fact">
+        <h4>Print-only label pack</h4>
+        <p>Print at 100% on full-sheet sticker paper and cut along the borders.</p>
+      </div>
+      <div class="fact">
+        <h4>An organizing tool</h4>
+        <p>Not a will or legal document, and not a replacement for legal, financial, or medical advice.</p>
+      </div>
+    </div>
 
     <div class="compare-wrap">
       <table class="compare">
         <thead>
           <tr>
             <th scope="col">When you need to…</th>
-            <th scope="col" class="c">Guide · $9.99</th>
-            <th scope="col" class="c hl">Bundle · $17.99</th>
+            <th scope="col" class="c">Guide only</th>
+            <th scope="col" class="c hl">Bundle</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Write down where documents, accounts, and policies are<small>12 sections, emergency summary, update log</small></td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
-          <tr><td>Get a reluctant parent to actually start<small>Openers, objection replies, worksheet</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
-          <tr><td>Know what to do in the first hours and first week<small>First hours, first day, and days 2–7 checklists</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
-          <tr><td>Make the physical files easy to find<small>51 printable folder and binder labels</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+          <tr><td>Get a reluctant parent to start<small>Openers, replies to pushback, worksheet</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+          <tr><td>Write down where documents, accounts, and policies are<small>Twelve sections, emergency summary, update log</small></td><td class="c yes">✓</td><td class="c hl yes">✓</td></tr>
+          <tr><td>Know what to do in an emergency and the first week<small>First hours, first day, and days 2–7 checklists</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
+          <tr><td>Make the physical files easy to find<small>Printable folder and binder labels</small></td><td class="c no">—</td><td class="c hl yes">✓</td></tr>
         </tbody>
       </table>
     </div>
@@ -619,34 +635,34 @@
 <!-- ============ FAQ ============ -->
 <section class="section faq" id="faq">
   <div class="wrap faq-grid">
-    <div>
+    <div class="head">
       <span class="tab teal">Questions</span>
-      <h2 style="margin-top:18px">Before you buy</h2>
+      <h2>Before you buy</h2>
     </div>
     <div>
       <details>
         <summary>Is this a will?</summary>
-        <div class="a">No. It's a logistics guide: where things are, who to call, and what you'd want. It doesn't replace a will or advice from an estate planning lawyer, and it works alongside one. In fact, one of its main jobs is making sure your family can find the will.</div>
+        <div class="a">No. It's an organizing tool: where things are, who to call, and what you'd want. It doesn't replace a will or advice from a lawyer or financial planner. One of its main jobs is making sure your family can find the will.</div>
       </details>
       <details>
-        <summary>What format is it? Can I fill it in on my computer?</summary>
-        <div class="a">Everything comes as a PDF. The main guide is fillable on screen and also prints cleanly, so you can type it or write it by hand. The label pack is designed for full-sheet sticker paper, printed at 100% size.</div>
+        <summary>What do I receive, and in what format?</summary>
+        <div class="a">PDF files, available to download right after checkout. What They'll Need to Know, Starting the Conversation, and What Happens Next can be filled in on screen or printed. The Family Document Label Pack is for printing on full-sheet sticker paper. Nothing physical is shipped.</div>
       </details>
       <details>
         <summary>Is it safe to write all this down?</summary>
         <div class="a">The guide is built so you never write passwords, PINs, Social Security numbers, or full account numbers in it. Instead you record where that information is stored, for example "in the password manager; the master password is with our attorney."</div>
       </details>
       <details>
-        <summary>I'm buying this for my parents. Which should I get?</summary>
-        <div class="a">The bundle. Starting the Conversation is written for exactly this situation, with openers and replies for the most common pushback. A lot of people fill out their own copy alongside their parent's, which takes the pressure off.</div>
+        <summary>I'm doing this with my parents. Which should I get?</summary>
+        <div class="a">The bundle. Starting the Conversation is written for exactly this situation, with gentle openers and replies to the most common pushback. Many people fill out their own copy alongside their parent's, which takes the pressure off.</div>
       </details>
       <details>
-        <summary>How long does it take to fill out?</summary>
-        <div class="a">The five "Start Here" items take about fifteen minutes. The whole guide is meant to be done a section at a time, over weeks if you like. There's an update log at the end, and a reminder to review it every six months.</div>
+        <summary>How long does it take?</summary>
+        <div class="a">The five "Start Here" items take about fifteen minutes. The rest can be done one section at a time, over weeks if you like. There's an update log at the end and a reminder to review it every six months.</div>
       </details>
       <details>
         <summary>Can I print more than one copy?</summary>
-        <div class="a">Yes. Print a copy for yourself, one for each parent, and reprint whenever you update it.</div>
+        <div class="a">Yes. Print a copy for yourself and one for each parent, and reprint whenever you update it.</div>
       </details>
     </div>
   </div>
@@ -655,29 +671,29 @@
 <!-- ============ FINAL CTA ============ -->
 <section class="section final">
   <div class="wrap">
-    <div>
+    <div class="head">
       <span class="tab on-dark">Start with fifteen minutes</span>
-      <h2 style="margin-top:18px">A gift your family opens on the day they need it most.</h2>
-      <p>Write down the five things tonight. Tell one person where it's kept. Everything else can come later.</p>
+      <h2>Give your family one less thing to search for.</h2>
+      <p>Have the conversation, write down the five essentials, and tell one person where the guide is kept. The rest can come later.</p>
     </div>
     <div class="ctas">
-      <a class="btn btn-primary btn-block" href="#" data-checkout="bundle">Get the Complete Bundle · $17.99</a>
-      <a class="btn btn-light btn-block" href="#" data-checkout="guide">Just the guide · $9.99</a>
-      <p class="checkout-note" hidden style="color:#F3C9B5"></p>
+      <a class="btn btn-primary btn-block" href="#" data-checkout="bundle">Get the Complete Family Bundle · $17.99</a>
+      <a class="textlink" href="#" data-checkout="guide">or get the guide only for $9.99</a>
+      <p class="checkout-note" hidden style="color:var(--peach)"></p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>What They'll Need to Know is for organizing information only. It is not a legal will and does not replace legal, financial, or medical advice.</p>
+    <p>What They'll Need to Know and its companion guides are for organizing information only. They are not legal documents and do not replace legal, financial, or medical advice.</p>
     <p>© <span id="yr">2026</span> What They'll Need to Know</p>
   </div>
 </footer>
 
 <div class="buybar" role="region" aria-label="Quick purchase">
-  <div class="l"><b>Complete Family Bundle</b>4 resources · $17.99</div>
-  <a class="btn btn-primary" href="#" data-checkout="bundle">Get the bundle</a>
+  <div class="l"><b>Complete Family Bundle</b>Instant download · $17.99</div>
+  <a class="btn btn-primary" href="#pricing" data-checkout="bundle">Get the Bundle</a>
 </div>
 
 <script>
@@ -697,11 +713,11 @@
       btn.rel = "noopener";
       return;
     }
-    // No link configured yet: buttons outside the pricing section scroll to it;
-    // the ones inside show a note instead of doing nothing.
+    // No link configured yet: buttons higher up scroll to pricing;
+    // the ones in pricing and the final section show a note instead of doing nothing.
+    if (btn.getAttribute("href") === "#") btn.href = "#pricing";
     btn.addEventListener("click", function (e) {
-      var inPricing = btn.closest("#pricing, .final");
-      if (!inPricing) return;
+      if (!btn.closest("#pricing, .final")) return;
       e.preventDefault();
       var note = btn.parentElement.querySelector(".checkout-note");
       if (note) {
@@ -709,7 +725,6 @@
         note.hidden = false;
       }
     });
-    if (btn.getAttribute("href") === "#") btn.href = "#pricing";
   });
 
   document.getElementById("yr").textContent = new Date().getFullYear();
