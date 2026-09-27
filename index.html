@@ -219,6 +219,7 @@
   .flow .f-act { background: var(--terracotta); }
   .flow .arr { color: var(--ink-3); font-size: 1.3rem; }
   .offer-final { color: var(--ink-2); max-width: 52ch; }
+  .transition .urgent { max-width: 38ch; font-family: var(--display); font-size: clamp(1.35rem, 2.6vw, 1.75rem); line-height: 1.3; color: var(--terracotta-dark); background: var(--sheet); border-left: 5px solid var(--terracotta); border-radius: 8px; padding: 16px 22px; text-align: left; box-shadow: 0 20px 40px -32px rgba(125,67,54,.6); }
   .transition .turn { font-family: var(--display); font-style: italic; font-size: clamp(1.4rem, 2.8vw, 1.9rem); color: var(--terracotta-dark); }
 
   /* ---------- Bundle ---------- */
@@ -338,15 +339,6 @@
   .assure b { color: #fff; font-size: 1.02rem; }
   .assure p { color: var(--on-dark-2); font-size: .93rem; }
 
-  /* ---------- FAQ ---------- */
-  .faq-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: clamp(32px, 5vw, 72px); }
-  details { border-bottom: 1px solid var(--rule); }
-  details:first-of-type { border-top: 2px solid var(--navy); }
-  summary { cursor: pointer; list-style: none; padding: 20px 44px 20px 0; position: relative; font-weight: 600; font-size: 1.05rem; color: var(--ink); min-height: 48px; }
-  summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: 1.4rem; color: var(--terracotta); font-weight: 500; }
-  details[open] summary::after { content: "–"; }
-  details .a { padding: 0 0 22px; color: var(--ink-2); max-width: 64ch; display: grid; gap: 10px; }
 
   /* ---------- Creator ---------- */
   .creator-card { display: grid; grid-template-columns: 160px 1fr; gap: clamp(20px, 4vw, 40px); align-items: center; max-width: 860px; margin-inline: auto; border-radius: 10px; padding: clamp(20px, 3vw, 32px); }
@@ -386,7 +378,7 @@
     .labels-img img { max-height: none; width: 100%; max-width: 440px; }
     .sum-grid { grid-template-columns: 1fr 1fr; }
     .deliver { grid-template-columns: 1fr 1fr; }
-    .hero .wrap, .guide-intro, .faq-grid, .bonus, .human .wrap { grid-template-columns: 1fr; }
+    .hero .wrap, .guide-intro, .bonus, .human .wrap { grid-template-columns: 1fr; }
     .hero .wrap { gap: 26px; }
     .hero-copy { display: contents; }
     .hero-copy .pill { order: 1; }
@@ -596,8 +588,10 @@
   <div class="wrap">
     <p class="kicker">Before you decide…</p>
     <h2 id="before-title">The guide helps you organize the answers. But how do you get those answers in the first place?</h2>
+    <p class="urgent">If you have an aging parent, this is a conversation you need to have with them, and the right time is now, while they can still tell you.</p>
     <div class="body">
-      <p>Talking with a parent about medical information, finances, important documents, and future wishes isn't always easy. They may avoid the subject, feel uncomfortable, or wonder why you're asking.</p>
+      <p>Only your parent knows which accounts exist, where the documents are kept, who to call, and what they would want. If you wait until a hospital stay or a crisis, it may be too late to ask.</p>
+      <p>But talking with a parent about medical information, finances, important documents, and future wishes isn't always easy. They may avoid the subject, feel uncomfortable, or wonder why you're asking.</p>
       <p>Even after everything is organized, another question remains: when an emergency happens, will your family know what to do first?</p>
     </div>
     <p class="turn">That's why there's a more complete way to prepare.</p>
@@ -825,56 +819,6 @@
       <div><b>Not a legal will</b><p>An organizing tool that works alongside your will and your attorney's advice.</p></div>
       <div><b>No sensitive numbers</b><p>The guides record where passwords and account details are kept, not the details themselves.</p></div>
       <div><b>Nothing stored by this site</b><p>What you write stays in your own PDF. Card details go only to Lemon Squeezy's secure checkout.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="section" id="faq">
-  <div class="wrap faq-grid">
-    <div class="head">
-      <span class="pill green">Questions</span>
-      <h2>Before you buy</h2>
-    </div>
-    <div>
-      <details>
-        <summary>Is this a legal will?</summary>
-        <div class="a"><p>No. It's an organizing tool: where things are, who to call, and what you'd want. It doesn't replace a will, a trust, or advice from an estate planning attorney. One of its main jobs is making sure your family can find your will.</p></div>
-      </details>
-      <details>
-        <summary>What exactly do I receive?</summary>
-        <div class="a">
-          <p><b>The Guide:</b> What They'll Need to Know, the complete 30-page main guide, as a PDF.</p>
-          <p><b>The Complete Family Bundle:</b> three PDF guides (What They'll Need to Know, Starting the Conversation, and What Happens Next) plus the Family Document Label Pack, a printable PDF with two label sheets.</p>
-        </div>
-      </details>
-      <details>
-        <summary>Can I fill out the PDFs digitally?</summary>
-        <div class="a"><p>Yes. The three guides have fillable fields. Open them in a PDF app that supports forms, such as the free Adobe Acrobat Reader, type your answers, and save the file.</p></div>
-      </details>
-      <details>
-        <summary>Can I print them?</summary>
-        <div class="a"><p>Yes. Everything is sized for US letter paper (8.5 × 11 in). Print as many copies as you need, for yourself and for each parent.</p></div>
-      </details>
-      <details>
-        <summary>Will anything be shipped?</summary>
-        <div class="a"><p>No. Every product is a digital download. No physical stickers or printed books will be shipped. You print the label pack yourself, on regular paper or full-sheet adhesive label paper.</p></div>
-      </details>
-      <details>
-        <summary>How do I receive my files?</summary>
-        <div class="a"><p>Right after payment, the checkout confirmation shows your download links, and a receipt with the same links is emailed to the address you enter at checkout. If you can't find the email, check your spam or promotions folder.</p></div>
-      </details>
-      <details>
-        <summary>I'm preparing with my parent. Which option should I choose?</summary>
-        <div class="a"><p>The Complete Family Bundle. Starting the Conversation is written for exactly this situation, with low-pressure openers and replies to common pushback. Many people fill out their own copy alongside their parent's, which takes the pressure off.</p></div>
-      </details>
-      <details>
-        <summary>Is sensitive information stored by the website?</summary>
-        <div class="a">
-          <p>No. This website doesn't collect or store anything you write in the guides. Your completed PDFs stay wherever you save or print them.</p>
-          <p>Payment is handled by Lemon Squeezy. Your card details are entered on their checkout, never on this site. They receive your name and email to process the order and send your receipt.</p>
-        </div>
-      </details>
     </div>
   </div>
 </section>
