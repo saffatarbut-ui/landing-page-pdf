@@ -275,7 +275,7 @@
   .deliver b { display: block; color: var(--ink); font-size: 1.02rem; line-height: 1.3; }
   .deliver div span { color: var(--ink-2); font-size: .95rem; }
   .deliver-line { margin-top: 26px; text-align: center; font-weight: 600; color: var(--ink); }
-  .btn.is-soon { font-size: .95rem; }
+  .pay-note { font-size: .9rem; font-weight: 600; color: var(--terracotta); text-align: center; margin-top: -8px; }
 
   .ship-note {
     display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start;
@@ -330,18 +330,6 @@
   .guarantee { margin: 22px auto 0; max-width: 62ch; text-align: center; color: #fff; font-weight: 600; display: flex; gap: 10px; justify-content: center; align-items: center; }
   .guarantee svg { color: var(--blush); flex: none; }
 
-  /* Waitlist: the conversion goal while checkout isn't connected */
-  .waitlist { margin: 36px auto 0; max-width: 620px; background: var(--sheet); color: var(--ink); border-radius: 12px; padding: clamp(22px, 3.5vw, 32px); display: grid; gap: 12px; text-align: center; }
-  .waitlist h3 { font-size: 1.6rem; }
-  .waitlist p { color: var(--ink-2); }
-  .waitlist .early { color: var(--terracotta); font-weight: 700; }
-  .wl-form { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-top: 6px; }
-  .wl-form input { min-height: 52px; border: 1.5px solid #B9C4D0; border-radius: 6px; padding: 0 14px; font: 1rem var(--body); color: var(--ink); background: #fff; min-width: 0; }
-  .wl-form input:focus { outline: 3px solid var(--navy); outline-offset: 1px; border-color: var(--navy); }
-  .wl-msg { font-weight: 600; min-height: 1.2em; }
-  .wl-msg.ok { color: var(--green) !important; }
-  .wl-msg.err { color: var(--terracotta) !important; }
-  .wl-fine { font-size: .85rem; }
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Objection handlers right under the prices */
@@ -421,7 +409,6 @@
     .lede, .hero .lede, .transition .body { font-size: 1.06rem; }
     .hero-actions { justify-items: stretch; }
     .hero-actions .btn { width: 100%; }
-    .wl-form { grid-template-columns: 1fr; }
     .assure { grid-template-columns: 1fr; }
     .unknowns { grid-template-columns: 1fr; }
     .unknowns .ask { font-size: 1.3rem; }
@@ -834,20 +821,6 @@
       <span data-guarantee-text></span>
     </p>
 
-    <!-- Separate from purchasing. Shown only while a checkout link is missing (see WAITLIST in the script). -->
-    <div class="waitlist" id="waitlist" data-waitlist hidden>
-      <h3>Checkout isn't open yet.</h3>
-      <p>Purchasing opens soon. Leave your email and we'll send you one message when the guides are available.</p>
-      <p class="early" data-early hidden></p>
-      <form class="wl-form" data-waitlist-form novalidate>
-        <label class="sr" for="wl-email">Email address</label>
-        <input id="wl-email" type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
-        <button class="btn btn-primary" type="submit">Notify me</button>
-      </form>
-      <p class="wl-msg" data-wl-msg role="status" aria-live="polite"></p>
-      <p class="wl-fine">We'll only email you about the launch.</p>
-    </div>
-
     <div class="assure">
       <div><b>Not a legal will</b><p>An organizing tool that works alongside your will and your attorney's advice.</p></div>
       <div><b>No sensitive numbers</b><p>The guides record where passwords and account details are kept, not the details themselves.</p></div>
@@ -989,18 +962,6 @@
   var SHOW_PLACEHOLDERS = false;
 
   /* =====================================================================
-   * WAITLIST — shown in place of checkout until both CHECKOUT links are set.
-   * action: the form address from your email tool, e.g.
-   *   Formspree:  "https://formspree.io/f/xxxxxxx"
-   *   Kit, Mailchimp, Buttondown, etc.: the form's "action" URL
-   * field: the name your tool expects for the email field (usually "email";
-   *   Mailchimp uses "EMAIL").
-   * earlyBird: optional line, e.g. "Waitlist members get 20% off at launch."
-   *   Only promise a discount you'll really give.
-   * ===================================================================== */
-  var WAITLIST = { action: "", field: "email", earlyBird: "Join the waitlist for an early-bird launch discount." };
-
-  /* =====================================================================
    * TRUST — only real facts.
    * GUARANTEE: your actual refund policy, e.g. "30-day refund, no questions asked."
    *   Shown under both price cards. Empty = hidden.
@@ -1017,17 +978,23 @@
     buttons.forEach(function (btn) {
       var url = CHECKOUT[btn.getAttribute("data-checkout")];
       if (!isUrl(url)) {
-        // Checkout not connected yet: say so plainly and lead to the separate waitlist.
+        // No checkout link yet: keep the pay button, and say so if someone clicks it.
         anyMissing = true;
-        btn.href = "#waitlist";
-        btn.textContent = "Checkout opens soon · Join the waitlist";
-        btn.classList.add("is-soon");
+        btn.href = "#pricing";
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          var note = btn.nextElementSibling;
+          if (!note || !note.classList.contains("pay-note")) {
+            note = document.createElement("p"); note.className = "pay-note"; note.setAttribute("role", "status");
+            btn.after(note);
+          }
+          note.textContent = "Checkout opens soon. This button will take you to secure payment.";
+        });
         return;
       }
       anyReady = true;
       btn.href = url;   // Hosted checkout: works everywhere, used on phones
     });
-    if (anyMissing) document.querySelector("[data-waitlist]").hidden = false;
     if (!anyReady) return;
 
     // Desktop: open Lemon Squeezy's official checkout overlay instead of leaving the page.
@@ -1048,29 +1015,6 @@
       if (typeof window.createLemonSqueezy === "function") window.createLemonSqueezy();
     };
     document.head.appendChild(s);
-  })();
-
-  (function waitlist() {
-    var form = document.querySelector("[data-waitlist-form]");
-    if (!form) return;
-    var input = form.querySelector("input"), msg = document.querySelector("[data-wl-msg]");
-    input.name = WAITLIST.field || "email";
-    if (WAITLIST.earlyBird) { var e = document.querySelector("[data-early]"); e.textContent = WAITLIST.earlyBird; e.hidden = false; }
-    function say(text, kind) { msg.textContent = text; msg.className = "wl-msg " + (kind || ""); }
-    form.addEventListener("submit", function (ev) {
-      ev.preventDefault();
-      if (!input.value || !input.checkValidity()) { say("Please enter a valid email address.", "err"); input.focus(); return; }
-      if (!WAITLIST.action) { say("Sign-ups open very soon. Please check back shortly.", "err"); return; }
-      if (/formspree\.io/.test(WAITLIST.action)) {
-        say("Sending…");
-        fetch(WAITLIST.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-          .then(function (r) { if (r.ok) { say("You're on the list. We'll email you when it's live.", "ok"); form.reset(); } else throw 0; })
-          .catch(function () { say("That didn't go through. Please try again in a moment.", "err"); });
-      } else {
-        form.action = WAITLIST.action; form.method = "POST"; form.target = "_blank"; form.submit();
-        say("Thanks! Check the new tab to confirm your sign-up.", "ok");
-      }
-    });
   })();
 
   (function proof() {

@@ -8,11 +8,8 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
 1. **Checkout links:** paste your two Lemon Squeezy checkout URLs into the `CHECKOUT` block
    near the bottom of `index.html`. Full steps, file delivery, and testing are in
    [`CHECKOUT-SETUP.md`](CHECKOUT-SETUP.md).
-2. **Waitlist (until checkout is live):** while a checkout link is missing, both price buttons read
-   "Checkout opens soon · Join the waitlist" and a separate email form appears under the prices. Connect it by pasting your email
-   tool's form address into `WAITLIST.action` (Formspree, Kit, Mailchimp, Buttondown…).
-   `WAITLIST.earlyBird` currently promises an early-bird launch discount: create a real discount
-   code in Lemon Squeezy and email it to the waitlist, or clear the line.
+2. **Pay buttons:** both price cards always show "Get the Guide — $12.99" and "Get the Complete
+   Bundle — $23". Until the checkout links are set, clicking one shows "Checkout opens soon".
 3. **Trust lines (real facts only):** `GUARANTEE` is empty, so no refund line is shown. If you ever
    adopt a refund policy, put its exact wording there and it appears under the prices.
    `STAT` (e.g. a true "Used by N families") shows near the top and the prices. Both hidden while empty.
@@ -30,7 +27,6 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
 ## Files
 
 - `index.html`: the landing page
-- `LAUNCH-EMAILS.md`: three ready-to-edit emails for the waitlist (launch day, reminder, last day)
 - `thank-you.html`: post-purchase page (no download links; delivery is handled by Lemon Squeezy)
 - `assets/`: covers and single-page previews rendered from the PDFs. The full product PDFs
   are intentionally **not** in this repository.
