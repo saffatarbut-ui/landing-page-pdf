@@ -210,6 +210,7 @@
   .product .pages { font-size: .88rem; font-weight: 700; color: var(--ink-3); letter-spacing: .02em; }
   .product .when { font-size: .95rem; color: var(--ink); background: var(--paper); border-radius: 6px; padding: 8px 12px; }
   .product .when b { color: var(--navy); }
+  .more-btn { display: none; }
   .product ul { margin: 4px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .98rem; color: var(--ink-2); }
   .product li { display: grid; grid-template-columns: 18px 1fr; gap: 8px; }
   .product li::before { content: "✓"; font-weight: 700; color: var(--green); }
@@ -391,7 +392,13 @@
     .assure { grid-template-columns: 1fr; }
     .unknowns { grid-template-columns: 1fr; }
     .unknowns .ask { font-size: 1.3rem; }
-    .organizes { grid-template-columns: 1fr; }
+    /* Lighter reading on phones: compact tags instead of a long list */
+    .organizes { display: flex; flex-wrap: wrap; gap: 8px; }
+    .organizes li { display: inline-flex; background: var(--paper); border: 1px solid var(--rule); border-radius: 999px; padding: 6px 12px; font-size: .9rem; }
+    .organizes li::before { display: none; }
+    /* Show three bullets per guide; the rest behind "Show more" */
+    .product ul.collapsed li:nth-child(n+4) { display: none; }
+    .more-btn { display: inline-flex; justify-self: start; align-items: center; gap: 6px; background: none; border: 0; padding: 6px 0; font: 700 .95rem var(--body); color: var(--navy); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; min-height: 44px; }
 
     .gallery-wrap { margin-inline: calc(var(--gutter) * -1); }
     .gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px var(--gutter) 12px; scrollbar-width: none; }
@@ -1132,6 +1139,23 @@
       });
     });
     dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.hasAttribute("data-close")) dlg.close(); });
+  })();
+
+  (function moreBullets() {
+    document.querySelectorAll(".product ul").forEach(function (ul) {
+      var extra = ul.children.length - 3;
+      if (extra <= 0) return;
+      ul.classList.add("collapsed");
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "more-btn"; b.setAttribute("aria-expanded", "false");
+      b.textContent = "Show " + extra + " more";
+      b.addEventListener("click", function () {
+        var open = ul.classList.toggle("collapsed") === false;
+        b.setAttribute("aria-expanded", String(open));
+        b.textContent = open ? "Show less" : "Show " + extra + " more";
+      });
+      ul.after(b);
+    });
   })();
 
   (function swipeDots() {

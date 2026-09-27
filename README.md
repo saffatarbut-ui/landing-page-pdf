@@ -30,6 +30,7 @@ guide ($9.99) and the Complete Family Bundle ($17.99). No build step.
 ## Files
 
 - `index.html`: the landing page
+- `LAUNCH-EMAILS.md`: three ready-to-edit emails for the waitlist (launch day, reminder, last day)
 - `thank-you.html`: post-purchase page (no download links; delivery is handled by Lemon Squeezy)
 - `assets/`: covers and single-page previews rendered from the PDFs. The full product PDFs
   are intentionally **not** in this repository.
