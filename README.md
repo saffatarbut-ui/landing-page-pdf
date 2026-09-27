@@ -13,8 +13,8 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
    tool's form address into `WAITLIST.action` (Formspree, Kit, Mailchimp, Buttondown…).
    `WAITLIST.earlyBird` currently promises an early-bird launch discount: create a real discount
    code in Lemon Squeezy and email it to the waitlist, or clear the line.
-3. **Trust lines (real facts only):** `GUARANTEE` is set to "30-day refund, no questions asked." and
-   shows under the prices. Honor it (refunds are issued from the Lemon Squeezy dashboard) or change it.
+3. **Trust lines (real facts only):** `GUARANTEE` is empty, so no refund line is shown. If you ever
+   adopt a refund policy, put its exact wording there and it appears under the prices.
    `STAT` (e.g. a true "Used by N families") shows near the top and the prices. Both hidden while empty.
    Testimonials and `CREATOR` also feed the short proof line near the top and the prices.
 4. **Launch price (optional, off by default):** set `LAUNCH.endsAt` only to a real date you'll honor.

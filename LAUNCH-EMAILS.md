@@ -34,8 +34,7 @@ Two ways to get it:
 - **The Complete Family Bundle ($23.00):** the guide, Starting the Conversation, What Happens
   Next, and the printable label pack. [BUNDLE CHECKOUT LINK]
 
-Instant digital download. Nothing is shipped. [Your refund policy, e.g. "30-day refund, no
-questions asked."]
+Instant digital download. Nothing is shipped.
 
 [YOUR NAME]
 
