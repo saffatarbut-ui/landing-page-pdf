@@ -138,6 +138,11 @@
   .hero-quote { max-width: 32em; padding-left: 16px; border-left: 3px solid var(--terracotta); }
   .plan-quote { background: var(--paper); border-radius: 8px; padding: 14px 16px; }
   .plan-quote blockquote { font-size: 1.02rem; }
+  .sound { background: var(--green-soft); }
+  .sound-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 40px; max-width: 980px; margin-inline: auto; }
+  .sound-card { background: var(--sheet); border-radius: 10px; border-left: 5px solid var(--green); padding: 22px 24px; display: grid; gap: 10px; align-content: start; }
+  .sound-card .thought { font-family: var(--display); font-style: italic; font-size: 1.3rem; line-height: 1.3; color: var(--navy-deep); }
+  .sound-card p:not(.thought) { color: var(--ink-2); }
   .problem-close { margin-top: 36px; max-width: 64ch; font-size: 1.12rem; color: var(--ink-2); }
   .problem-close strong { color: var(--navy-deep); }
   .recap { margin: 36px auto 0; max-width: 980px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 18px 22px; display: grid; gap: 14px; }
@@ -348,6 +353,7 @@
   @media (max-width: 900px) {
     .labels-grid { grid-template-columns: 1fr; }
     .recap ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sound-grid { grid-template-columns: 1fr; }
     .labels-img img { max-height: none; width: 100%; max-width: 440px; }
     .hero .wrap, .guide-intro, .bonus { grid-template-columns: 1fr; }
     .hero .wrap { gap: 26px; }
@@ -464,6 +470,22 @@
       <li><span class="ask">What would they have wanted?</span><p>Their care, their service, their final wishes. When nothing is written down, the family is left guessing, and sometimes fighting.</p></li>
     </ul>
     <p class="problem-close"><strong>Your family deserves certainty, not guesswork.</strong> One conversation today and one organized guide mean they will know exactly where to look, who to call, and what you wanted.</p>
+  </div>
+</section>
+
+<!-- ============ DOES THIS SOUND LIKE YOU? (situations, not testimonials) ============ -->
+<section class="section sound" aria-labelledby="sound-title">
+  <div class="wrap">
+    <div class="head center">
+      <span class="pill green">Does this sound like you?</span>
+      <h2 id="sound-title" class="measure">If any of these thoughts are familiar, this guide was made for you.</h2>
+    </div>
+    <div class="sound-grid">
+      <div class="sound-card"><p class="thought">"Mom is 78 and I have no idea who her doctor is anymore."</p><p>You'd be the one getting the call from the hospital. Right now, you'd be starting from zero.</p></div>
+      <div class="sound-card"><p class="thought">"Dad always said everything is in the filing cabinet."</p><p>Which folder? Which bank? Which insurance policy? "Somewhere" isn't an answer at 2 a.m. in an ER waiting room.</p></div>
+      <div class="sound-card"><p class="thought">"Every time I bring it up, she changes the subject."</p><p>You know you need to ask. You just don't know how to start without it feeling morbid.</p></div>
+      <div class="sound-card"><p class="thought">"My brother and I would argue about what Dad wanted."</p><p>When nothing is written down, families end up guessing, and guessing turns into fighting.</p></div>
+    </div>
   </div>
 </section>
 
