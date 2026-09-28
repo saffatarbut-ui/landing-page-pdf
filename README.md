@@ -14,7 +14,8 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
    adopt a refund policy, put its exact wording there and it appears under the prices.
 4. **Launch price (optional, off by default):** set `LAUNCH.endsAt` only to a real date you'll honor.
 5. **Testimonials and "Why I Created This":** add real quotes to `TESTIMONIALS` with a `placement` of
-   `"hero"`, `"guide"` or `"bundle"` (one short quote near the top, one under each price card), and fill
+   `"hero"`, `"guide"` or `"bundle"` (one short quote near the top, one under each price card), or
+   `"photo1"`, `"photo2"`, `"photo3"` (the three large cards beside the photo of the guides), and fill
    in `CREATOR`. Real quotes only, with permission. Empty slots stay hidden.
 6. **Review mode:** `SHOW_PLACEHOLDERS = true` shows the three example quotes (`SAMPLE_TESTIMONIALS`),
    each labeled "Sample quote · replace before launch". Keep it `false` on the published page.

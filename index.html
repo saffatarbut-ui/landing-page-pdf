@@ -206,6 +206,24 @@
   .standalone svg { color: var(--green); }
   .standalone p { color: var(--ink); }
 
+  /* ---------- Photo: the three guides together ---------- */
+  .photo-band { background: var(--paper); }
+  .photo-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .photo-grid .photo { margin: 0; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 70px -45px rgba(24,43,70,.55); }
+  .photo-grid .photo img { width: 100%; height: auto; }
+  .photo-side { display: grid; gap: 22px; }
+  .photo-side h2 { font-size: clamp(1.9rem, 3.6vw, 2.7rem); }
+  .photo-side .lede { font-size: 1.15rem; color: var(--ink-2); margin: 0; }
+  .photo-quotes { display: grid; gap: 18px; }
+  .big-quote { background: var(--sheet); border-radius: 14px; padding: 22px 26px 22px 84px; position: relative; box-shadow: 0 24px 44px -36px rgba(24,43,70,.5); }
+  .big-quote::before { content: "\201C"; position: absolute; left: 20px; top: 20px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: var(--display); font-size: 2.6rem; line-height: 1; padding-top: 14px; box-sizing: border-box; background: var(--green-soft); color: var(--green); }
+  .big-quote:nth-child(2)::before { background: #E1E7EF; color: var(--navy); }
+  .big-quote:nth-child(3)::before { background: var(--terracotta-soft); color: var(--terracotta); }
+  .big-quote blockquote { font-style: normal; font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--navy-deep); }
+  .big-quote::after { content: ""; display: block; width: 64px; height: 3px; margin-top: 12px; border-radius: 2px; background: var(--green); }
+  .big-quote:nth-child(2)::after { background: var(--navy); }
+  .big-quote:nth-child(3)::after { background: var(--terracotta); }
+  .photo-side .to-bundle { font-weight: 700; color: var(--navy); }
   /* ---------- "Before you choose" transition ---------- */
   .transition { background: var(--terracotta-soft); text-align: center; position: relative; }
   .transition .wrap { display: grid; justify-items: center; gap: 22px; }
@@ -351,6 +369,10 @@
     .product > :not(.cover-wrap) { grid-column: 2; }
   }
   @media (max-width: 900px) {
+    .photo-grid { grid-template-columns: 1fr; }
+    .photo-grid .photo { max-width: 560px; justify-self: center; }
+    .photo-side { text-align: center; }
+    .big-quote { text-align: left; }
     .labels-grid { grid-template-columns: 1fr; }
     .recap ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sound-grid { grid-template-columns: 1fr; }
@@ -372,6 +394,8 @@
 
   /* ---------- Phone ---------- */
   @media (max-width: 640px) {
+    .big-quote { padding: 70px 20px 20px; }
+    .big-quote::before { left: 20px; top: 16px; }
     body { font-size: 16px; }
     .lede, .hero .lede, .transition .body { font-size: 1.06rem; }
     .hero-actions { justify-items: stretch; }
@@ -569,6 +593,25 @@
       <p class="offer-line">Start the conversation. Organize the information. Know what to do next.</p>
       <p class="flow" aria-label="Talk, then organize, then act"><span class="f-talk">Talk</span><span class="arr" aria-hidden="true">→</span><span class="f-org">Organize</span><span class="arr" aria-hidden="true">→</span><span class="f-act">Act</span></p>
       <p class="offer-final">Three practical PDF guides, plus printable labels to help you organize the actual paper documents.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO: THE THREE GUIDES TOGETHER ============ -->
+<section class="section photo-band" aria-labelledby="photo-title">
+  <div class="wrap photo-grid">
+    <figure class="photo">
+      <img src="assets/guides-photo.jpg" alt="A smiling woman holding printed copies of the three guides: Starting the Conversation, What They'll Need to Know, and What Happens Next" width="912" height="1086" loading="lazy">
+    </figure>
+    <div class="photo-side">
+      <h2 id="photo-title">Talk. Organize. Act. All in one place.</h2>
+      <p class="lede">Three guides that work together, so your family is never left wondering where everything is or what to do first.</p>
+      <div class="photo-quotes">
+        <figure class="quote big-quote" data-quote="photo1" hidden></figure>
+        <figure class="quote big-quote" data-quote="photo2" hidden></figure>
+        <figure class="quote big-quote" data-quote="photo3" hidden></figure>
+      </div>
+      <p><a class="to-bundle" href="#bundle">See what's inside each guide ↓</a></p>
     </div>
   </div>
 </section>
@@ -825,7 +868,8 @@
   /* =====================================================================
    * TESTIMONIALS — real quotes only, from real customers, testers or reviewers,
    * with their permission. placement: "hero" (short, 1–2 sentences),
-   * "guide" (under the $12.99 card) or "bundle" (under the $23 card).
+   * "guide" (under the $12.99 card), "bundle" (under the $23 card), or
+   * "photo1" / "photo2" / "photo3" (the large cards beside the photo of the three guides).
    * Example: { placement: "bundle", quote: "…", name: "Sarah M.", detail: "Bundle buyer" }
    * A slot stays hidden until it has a real quote.
    * ===================================================================== */
@@ -837,7 +881,10 @@
   var SAMPLE_TESTIMONIALS = [
     { placement: "hero", quote: "I found out my dad's whole filing cabinet system three days after he was hospitalized. I wish we'd had this a year earlier.", name: "Rachel M.", detail: "" },
     { placement: "guide", quote: "We used the main guide over two Sunday afternoons. It didn't feel like paperwork. It felt like we were finally getting ahead of something we'd been avoiding for years.", name: "David T.", detail: "Guide buyer" },
-    { placement: "bundle", quote: "The conversation guide is what actually got my mom to sit down with me. The organizing guide was the easy part after that.", name: "Priya S.", detail: "Bundle buyer" }
+    { placement: "bundle", quote: "The conversation guide is what actually got my mom to sit down with me. The organizing guide was the easy part after that.", name: "Priya S.", detail: "Bundle buyer" },
+    { placement: "photo1", quote: "This bundle gave us a simple way to start a conversation we had been avoiding for years.", name: "", detail: "" },
+    { placement: "photo2", quote: "The guides helped us organize the important information and feel less overwhelmed about what to do next.", name: "", detail: "" },
+    { placement: "photo3", quote: "The label pack was such a practical bonus. It made the actual folders and documents much easier to find.", name: "", detail: "" }
   ];
 
   /* =====================================================================
@@ -920,8 +967,9 @@
         box.appendChild(lbl);
       }
       var q = document.createElement("blockquote"); q.textContent = t.quote;
-      var c = document.createElement("figcaption"); c.textContent = t.name + (t.detail ? ", " + t.detail : "");
-      box.appendChild(q); box.appendChild(c); box.hidden = false;
+      box.appendChild(q);
+      if (t.name) { var c = document.createElement("figcaption"); c.textContent = t.name + (t.detail ? ", " + t.detail : ""); box.appendChild(c); }
+      box.hidden = false;
     });
     if (GUARANTEE) { document.querySelector("[data-guarantee-text]").textContent = GUARANTEE; document.querySelector("[data-guarantee]").hidden = false; }
   })();
