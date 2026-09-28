@@ -42,7 +42,7 @@ var CHECKOUT = {
 };
 ```
 
-Both price cards always show "Get the Guide — $12.99" and "Get the Complete Bundle — $23".
+Both price cards always show "Get the Guide for $12.99" and "Get the Complete Bundle for $23".
 Until a link is filled in, clicking its button shows "Checkout opens soon" instead of opening
 checkout. Once both links are set, the buttons open Lemon Squeezy's secure checkout. Also change
 "PreOrder" to "InStock" in the product data at the top of `index.html` when you go live.

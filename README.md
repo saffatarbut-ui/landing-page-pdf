@@ -8,8 +8,8 @@ guide ($12.99) and the Complete Family Bundle ($23.00). No build step.
 1. **Checkout links:** paste your two Lemon Squeezy checkout URLs into the `CHECKOUT` block
    near the bottom of `index.html`. Full steps, file delivery, and testing are in
    [`CHECKOUT-SETUP.md`](CHECKOUT-SETUP.md).
-2. **Pay buttons:** both price cards always show "Get the Guide — $12.99" and "Get the Complete
-   Bundle — $23". Until the checkout links are set, clicking one shows "Checkout opens soon".
+2. **Pay buttons:** both price cards always show "Get the Guide for $12.99" and "Get the Complete
+   Bundle for $23". Until the checkout links are set, clicking one shows "Checkout opens soon".
 3. **Trust lines (real facts only):** `GUARANTEE` is empty, so no refund line is shown. If you ever
    adopt a refund policy, put its exact wording there and it appears under the prices.
 4. **Launch price (optional, off by default):** set `LAUNCH.endsAt` only to a real date you'll honor.
